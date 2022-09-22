@@ -192,24 +192,28 @@ def complete_square(A, B):
     print("Complete square:  = {}".format(C))
     print('')
 
-def calculate_y(x, b, c):
-    match s1:
+def calculate_y(x, L, s, a, e, b, c):
+    xpoints = [-2, -1, 0, 1, 2]
+
+    match s:
         case '<':
-            ypoints.append(x < b1 * x + c1)
+            y = a1 * (x ** e) + (b1 * x) + c1
         case '<=':
-            ypoints.append(x <= b1 * x + c1
+            ypoints.append(x[i] <= b1 * x + c1
         case '>':
             y = x > b1 * x + c1
         case '>=':
             y = x >= b1 * x + c1
+    print('({},{}'.format(x, y))
+
+calculate_y(0, 2, <=, 0, 0, -5, 3)
+calculate_y(1, 2, <=, 0, 0, -5, 3)
+calculate_y(-1, 2, <=, 0, 0, -5, 3)
+calculate_y(2, 2, <=, 0, 0, -5, 3)
+calculate_y(-2, 2, <=, 0, 0, -5, 3)
 
 
-
-
-
-
-
-def piecewise_graph(x, s1, b1, c1, s2, b2, c2 ):
+def piecewise_graph(x, s1, b1, c1, s2, b2, c2):
     # f1 = "{} {}".format(x, s1)
     # f2 = "{} {}".format(x, s2)
     # print("f1: {} {}".format(x, s1))
