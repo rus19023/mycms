@@ -193,24 +193,7 @@ def complete_square(A, B):
     print('')
 
 def calculate_y(x, L, s, a, e, b, c):
-    xpoints = [-2, -1, 0, 1, 2]
-
-    match s:
-        case '<':
-            y = a1 * (x ** e) + (b1 * x) + c1
-        case '<=':
-            ypoints.append(x[i] <= b1 * x + c1
-        case '>':
-            y = x > b1 * x + c1
-        case '>=':
-            y = x >= b1 * x + c1
-    print('({},{}'.format(x, y))
-
-calculate_y(0, 2, <=, 0, 0, -5, 3)
-calculate_y(1, 2, <=, 0, 0, -5, 3)
-calculate_y(-1, 2, <=, 0, 0, -5, 3)
-calculate_y(2, 2, <=, 0, 0, -5, 3)
-calculate_y(-2, 2, <=, 0, 0, -5, 3)
+    pass
 
 
 def piecewise_graph(x, s1, b1, c1, s2, b2, c2):
@@ -222,25 +205,6 @@ def piecewise_graph(x, s1, b1, c1, s2, b2, c2):
     # x axis values
     xpoints = [x, x - 2]
     ypoints = []
-    # corresponding y axis values
-    match s1:
-        case '<':
-            ypoints.append(x < b1 * x + c1)
-        case '<=':
-            ypoints.append(x <= b1 * x + c1
-        case '>':
-            y = x > b1 * x + c1
-        case '>=':
-            y = x >= b1 * x + c1
-    match s2:
-        case '<':
-            y += x < b2 * x + c2
-        case '<=':
-            y += x <= b2 * x + c2
-        case '>':
-            y += x > b2 * x + c2
-        case '>=':
-            y += x >= b2 * x + c2
 
 
     # plotting the points
