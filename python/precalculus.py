@@ -192,35 +192,6 @@ def complete_square(A, B):
     print("Complete square:  = {}".format(C))
     print('')
 
-def calculate_y(x, L, s, a, e, b, c):
-    pass
-
-
-def piecewise_graph(x, s1, b1, c1, s2, b2, c2):
-    # f1 = "{} {}".format(x, s1)
-    # f2 = "{} {}".format(x, s2)
-    # print("f1: {} {}".format(x, s1))
-    # print("f1: {} {}".format(x, s2))
-
-    # x axis values
-    xpoints = [x, x - 2]
-    ypoints = []
-
-
-    # plotting the points
-    plt.plot(x, y, color='red')
-    plt.grid()
-
-    # naming the x axis
-    plt.xlabel('x - axis')
-    # naming the y axis
-    plt.ylabel('y - axis')
-
-    # giving a title to my graph
-    plt.title('Piecewise graph for f(x) f1 and f(x) f2!')
-
-    # function to show the plot
-    plt.show()
 
 
 # #complete_square(A, B)

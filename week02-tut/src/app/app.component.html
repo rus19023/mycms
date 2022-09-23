@@ -5,3 +5,15 @@
 <app-servers></app-servers>
 <!-- <div app-servers></div> -->
 <!-- <div class="app-servers"></div> -->
+
+
+
+<button class="btn btn-primary" (click)="toggleHideJoke()">Display Details</button>
+<p [
+    ngStyle]="{ display: getHide() }"
+    [ngClass]="{ hidden: hide === false }">
+    Joke of the day:<br>
+    Why shouldn’t you write with a broken pencil?
+    <br><br>
+    Because it’s pointless! Bada Boom!
+</p>
