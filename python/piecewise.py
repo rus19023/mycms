@@ -3,16 +3,21 @@ from matplotlib import pyplot as plt
 def calculate_y_piece(L, s, a, e, b, c):
     xvals = []
     xvals.append(L)
-    if s == '>' or s == '>=':
-        if 0 > L:
-            xvals.append(0)
-        else:
-            xvals.append(L + 1)
-    if s == '<' or s == '<=':
-        if 0 < L:
-            xvals.append(0)
-        else:
-            xvals.append(L - 1)
+    if s == '!=0':
+        y = c
+    elif s == '=0':
+        y = c2
+    else:
+        if s == '>' or s == '>=':
+            if 0 > L:
+                xvals.append(0)
+            else:
+                xvals.append(L + 1)
+        if s == '<' or s == '<=':
+            if 0 < L:
+                xvals.append(0)
+            else:
+                xvals.append(L - 1)
     print("")
     yvals = []
     points = ''
@@ -65,23 +70,24 @@ def header(L, s, b, c):
     print("")
     print('{}x {}  if x {} {} '.format(sb, sc, s, L))
 
-L = -1
+L = 0
+M = 0  # TODO: add code to work on !=/=  0 pieces
 s = '<'
-b = -1
-c = 3
+b = 1
+c = -2
 
 s2 = '>='
-b2 = -3
-c2 = 1
+b2 = 3
+c2 = 2
 
 a = 0
 e = 1
 a2 = 0
 e2 = 1
 
-between = False
-betweenL = 0
-betweenR = 0
+between = True
+betweenL = -2
+betweenR = -1
 
 print('')
 print('_________________________')
