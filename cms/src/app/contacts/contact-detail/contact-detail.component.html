@@ -5,13 +5,9 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <!-- <h1>{{ contacts.cname }} string interpolation gives error</h1> -->
-      <h3>Contact Name Here</h3>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
+      <h3>{{ contact.cname}} </h3>
       <div class="">
+        <img src="{{ contact.imageUrl }}" alt="{{ contact.cname }}">
         <button class="btn btn-primary m-1">Edit</button>
         <button class="btn btn-danger m-1">Delete</button>
         <!-- <button
@@ -29,12 +25,15 @@
   </div>
   <hr>
   <div class="row">
-    <div class="col-md-12 m-2">
-      Email: enclosed in double curly braces: contacts.email
+
+    <div class="row">
+      <div class="col-md-12 m-2">
+        Email: {{ contact.email }}
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 m-2">
-      Phone: enclosed in double curly braces: contacts.phone
+    <div class="row">
+      <div class="col-xs-12 m-2">
+        Phone: {{ contact.phone }}
+      </div>
     </div>
   </div>
