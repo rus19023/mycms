@@ -32,13 +32,15 @@ def main():
     print('')
     match choice:
         case 1:
-            coefficients = getcoefficients()
-            print(coefficients)
-            factortrinomial(coefficients[0], coefficients[1], coefficients[2])
+            #coefficients = getcoefficients()
+            #print(coefficients)
+            factortrinomial(5, -7, -6)
+            #factortrinomial(coefficients[0], coefficients[1], coefficients[2])
         case 2:
-            coefficients = getcoefficients()
-            print(coefficients)
-            quadratic(coefficients[0], coefficients[1], coefficients[2])
+            #coefficients = getcoefficients()
+            #print(coefficients)
+            quadratic(5, -7, -6)
+            #quadratic(coefficients[0], coefficients[1], coefficients[2])
         case 3:
             coords = getpointcoordinates()
             print(coords)
@@ -108,37 +110,53 @@ def factortrinomial(a, b, c):
     print('b: {}'.format(b))
     print('c: {}'.format(c))
     # get the product of a and c coefficients to set range for loop
-    ac = a * c
-    if ac < 0:
-        acstart = -ac
-        print('     ac: {}, Line Number: ()'.format(ac, frame.lineno))
+    ac_orig = a * c
+    if ac_orig < 0:
+        acstart = ac_orig
+        ac = -ac_orig
+        print('     115 ac: {}, Line Number: ()'.format(ac, frame.lineno))
     else:
-        acstart = ac
-        print('     ac: {}, Line Number: ()'.format(ac, frame.lineno))
+        acstart = -ac_orig
+        print('     118 ac: {}, Line Number: ()'.format(ac, frame.lineno))
+    print('119: ', acstart, ac)
     # find factors of ac that = b when added together
     # using numbers less than ac
     #print('ac + 1: {}'.format(ac + 1))
     for i in range(acstart, ac):
+        #print('it works! line 124')
         # check for divisor not 0 and i is a factor of ac
-        if i != 0 and ac % i == 0:
-            f1 = ac / i
+        if (i != 0) and (ac_orig % i == 0):
+            print()
+            #print('it works! line 127', b, a + c)
+            f1 = int(ac_orig / i)
             f2 = i
             print('f1, f2: {}, {}'.format(f1, f2))
-            print('line 84, i: {}'.format(i))
-            print('line 87, i: {}'.format(i))
-            if (ac / i) + i == b:
-                print('line 89, i: {}'.format(i))
+            #print()
+            #print('line {}, i: {}'.format(i, frame.lineno))
+            print()
+            print('ac_orig / i: {}, i: {}'.format(ac_orig / i, i))
+            print()
+            print()
+            if (ac_orig / i) + i == b:
+                print('line {}, i: {}'.format(i, frame.lineno))
                 fractionf1 = Fraction(i)
                 fractionf2 = Fraction(ac / i)
                 print('factors = ({}x + {}), ({}x + {})'.format(fractionf1.denominator, fractionf1.numerator, fractionf2.denominator, fractionf2.numerator))
-                print('line 91, i: {}'.format(i))
+                break
+            else:
+                print('{} AND {} NOT ACCEPTABLE'.format(ac / i, i))
+            #print('line {}, i: {}'.format(i, frame.lineno))
             i += 1
-            print('line 93, i: {}'.format(i))
+            #print('line 93, i: {}'.format(i))
+        print('NO SOLUTION!')
 
 def quadratic(A, B, C):
     print('quadratic equation: \n')
-    #getcoefficients()
-    print('quadratic equation: y = {}x\u00b2 + {}x + {}'.format(A, B, C))
+    # coefficients = getcoefficients()
+    # A = float(coefficients[0])
+    # B = float(coefficients[1])
+    # C = float(coefficients[2])
+    print('y = {}x\u00b2 + {}x + {}'.format(A, B, C))
     print(' ')
 
     sum = (-B + m.sqrt((B * B) - (4 * A * C))) / (2 * A)
@@ -166,13 +184,13 @@ def quadratic(A, B, C):
     print('f1: ', f1)
     print(' ')
 
-    f2gcd = m.gcd(int(diff), (2 * A))
+    f2gcd = m.gcd(int(diff), int(2 * A))
     print('f2gcd: ', f2gcd)
 
-    f2num = int(diff / f2gcd)
+    f2num = (int(diff) / int(f2gcd)).Fraction()
     print('f2num: ', f2num)
 
-    f1num = int((2 * A) / f2gcd)
+    f1num = ((2 * A) / f2gcd).Fraction()
     print('f1num: ', f1num)
 
     f2 = "({}x {} {})".format(use_the_1(sum, True), getsign(f2num, False), int(f2num))
@@ -181,7 +199,7 @@ def quadratic(A, B, C):
 
     print('factors: ', f1, f2)
     print(' ')
-    print("solve: x = {}/{} or ".format(str(-f2num), str(f1num)))
+    print('roots: x = {}/{} or {}/{}'.format(str(-f2num), str(f1num)))
 
 def complete_square(A, B):
     print(' ')
@@ -221,7 +239,7 @@ def negative_exponent(a, b, exp):
 
 main()
 
-print('-------------------------- ')
+print('231-------------------------- ')
 print('')
 # print('-------------------------- ')
 # print('')
