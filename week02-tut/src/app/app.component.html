@@ -5,3 +5,38 @@
 <app-servers></app-servers>
 <!-- <div app-servers></div> -->
 <!-- <div class="app-servers"></div> -->
+
+<hr>
+<div>
+    <!-- <button class="btn btn-primary" (click)="toggleDisplay = !toggleDisplay">Toggle Display</button> -->
+    <button class="btn btn-primary" (click)=onToggleDisplay()>Toggle Display</button>
+    <br><br>
+    <p *ngIf="toggleDisplay">
+        Joke of the day:<br>
+        Why shouldn’t you write with a broken pencil?
+        <br><br>
+        Because it’s pointless! <br> Bada Boom!
+    </p>
+    <br><br>
+    <div id="timestamplog"
+        *ngFor="let logItem of log; let i = index"
+        [ngStyle]="{backgroundColor:i >= 4 ? 'blue' : 'transparent'}"
+        [ngClass]="{'white-font' : i >= 4}">
+        {{ logItem }}
+    </div>
+    <br><br>
+
+    <!-- <div id="numberslog"
+        *ngFor="let item of numberslog"
+        [ngStyle]="{background:item >= 5 ? 'blue' : 'transparent'}"
+        [ngClass]="{'white-font' : item >= 5}">
+        Toggled {{ item }} times.
+    </div> -->
+
+    <!-- <div
+    *ngFor="let logItem of numberslog"
+    [ngStyle]="{backgroundColor: logItem >= 5 ? 'blue' : 'transparent'}"
+    [ngClass]="{'white-font': logItem >= 5}"
+  >{{ logItem }}</div> -->
+
+</div>

@@ -2,14 +2,3 @@
     [ngStyle]="{backgroundColor: getColor()}"
     [ngClass]="{online: serverStatus === 'online'}"> {{ 'Server' }} with ID {{ serverId }} is {{ serverStatus}}
 </p>
-
-
-<button class="btn btn-primary" (click)="toggleHideJoke()">Display Details</button>
-<p [
-    ngStyle]="{display: getHide()}"
-    [ngClass]="{hidden: hide === false}">
-    Joke of the day:<br>
-    Why shouldn’t you write with a broken pencil?
-    <br><br>
-    Because it’s pointless! Bada Boom!
-</p>

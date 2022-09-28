@@ -80,3 +80,5 @@ print('____________________')
 calculate_y_conditional(L, s2, a2, e2, b2, c2)
 print('')
 print('')
+
+print( (3**2)//2 )

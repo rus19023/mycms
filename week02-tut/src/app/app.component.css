@@ -1,1 +1,11 @@
-h3 { color: darkblue; }
+h3 {
+    color: darkblue;
+}
+
+.white-text {
+    color: white;
+}
+
+.white-font {
+    color: white;
+}
