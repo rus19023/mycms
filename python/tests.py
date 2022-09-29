@@ -2,6 +2,7 @@ def calculate_y_conditional(L, s, a, e, b, c):
     
     y = (a * (0 ** e)) + (b * 0) + c
     print('({},{})'.format(0, y))
+    
     y = (a * (L ** e)) + (b * L) + c
     print('({},{})'.format(L, y))
 
