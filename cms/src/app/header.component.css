@@ -1,1 +1,9 @@
-.aqua-text { color: aqua; font-weight: bold }
+.navbar, .navbar-brand {
+    background: #494949;
+    color: white; 
+    font-weight: bold; 
+}
+
+li a {
+    color: white;
+}

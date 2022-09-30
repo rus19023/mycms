@@ -1,0 +1,9 @@
+.panel {
+    color: white;
+    background: grey;
+}
+
+.panel-heading {
+    background: #494949;
+    color: white;
+}
