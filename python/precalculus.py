@@ -12,6 +12,10 @@ filename = frame.filename
 print('')
 print("Filename:", filename)
 
+SUB = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
+SUP = str.maketrans("0123456789", "⁰¹²³⁴⁵⁶⁷⁸⁹")
+#TODO: add support for log subscript, any other math super or sub scripts
+
 
 #plt.rc('text', usetex=True)
 plt.rc('font', family='serif')
@@ -28,7 +32,7 @@ def main():
     print('5-Piecewise Graphs')
     print('6-')
     print('')
-    choice = int(input('Enter number of function to calculate: '))
+    choice = int(input('Enter number of menu item: '))
     print('')
     match choice:
         case 1:
@@ -56,7 +60,7 @@ def getint(message):
 
 def getpieces():
     x = getint('Enter x: ')
-    s1 = input('Enter sign 1: ')
+    s1 = input('Enter : ')
     b1 = getint('Enter b1 value: ')
     c1 = getint('Enter c1 value: ')
     s2 = input('Enter sign 2: ')
@@ -125,11 +129,11 @@ def factortrinomial(a, b, c):
     for i in range(acstart, ac):
         #print('it works! line 124')
         # check for divisor not 0 and i is a factor of ac
+        f1 = int(ac_orig / i)
+        f2 = i
         if (i != 0) and (ac_orig % i == 0):
             print()
             #print('it works! line 127', b, a + c)
-            f1 = int(ac_orig / i)
-            f2 = i
             print('f1, f2: {}, {}'.format(f1, f2))
             #print()
             #print('line {}, i: {}'.format(i, frame.lineno))
@@ -224,7 +228,7 @@ def midpoint_line(x1, x2, y1, y2):
     #print("x coord: x\u2081 + x\u2082 / 2 = {}".format(x))
     print("x coord: {} + {} / 2 = {}".format(x, x1, x2, x))
     print(' ')
-    print("y coord: y\u2081 + y\u2082 / 2 = {}".format(y))
+    print("y coord: y{} + y{} / 2 = {}".format('1'.translate(SUB), '2'.translate(SUB), y))
     print("y coord: {} + {} / 2 = {}".format(y1, y2, y))
     print(' ')
     print("Midpoint: ({},{})".format(x, y))
@@ -235,12 +239,12 @@ def negative_exponent(a, b, exp):
     exp2 = -exp  #calculate superscript of exponent value
     print("Negative exponent of ({}/{})^{}  =  {}/{}".format(b, a, exp, b ** exp2, a ** exp2))
 
-# \u2081 = subscript x
+
 
 main()
 
-print('231-------------------------- ')
-print('')
+# print('231-------------------------- ')
+# print('')
 # print('-------------------------- ')
 # print('')
 
