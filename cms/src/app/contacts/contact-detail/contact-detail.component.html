@@ -2,27 +2,26 @@
     <div class="panel-heading">
       <div class="row">
         <div class="col-md-8">
-          <h3 class="panel-title header">{{ contact.cname}} </h3>
+          <h2 class="panel-title header">{{ contact.cname}} </h2>
         </div>
       </div>
     </div>
     <div class="panel-body">
-      <img src="{{ contact.imageUrl }}" alt="{{ contact.cname }}" class="img-responsive">
-      <button class="btn btn-primary m-1">Edit</button>
-      <button class="btn btn-danger m-1">Delete</button>
-      <!-- <button
-        type="button"
-        class="btn btn-primary dropdown-toggle">
-        Manage Contact <span class="caret"></span>
-      </button> -->
+      <div class="row">
+        <div class="col-md-8">
+          <img src="{{ contact.imageUrl }}" alt="{{ contact.cname }}" class="img-responsive">
+          <button class="btn btn-primary">Edit</button>
+          <button class="btn btn-danger">Delete</button>
+        </div>     
+      </div>      
       <hr>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-xl-12">
           Email: {{ contact.email }}
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xl-8">
           Phone: {{ contact.phone}}
         </div>
       </div>

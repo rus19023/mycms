@@ -1,5 +1,9 @@
 .navbar, .navbar-brand {
-    background: rgb(73, 73, 73);
+    background: #494949;
     color: white; 
     font-weight: bold; 
+}
+
+li a {
+    color: white;
 }
