@@ -1,1 +1,5 @@
-.aqua-text { color: aqua; font-weight: bold }
+.navbar, .navbar-brand {
+    background: rgb(73, 73, 73);
+    color: white; 
+    font-weight: bold; 
+}
