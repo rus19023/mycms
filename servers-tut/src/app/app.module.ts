@@ -19,7 +19,7 @@ import { SuccessAlertComponent } from './success-alert/success-alert.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    FormsModule
     //HttpModule
   ],
   providers: [],

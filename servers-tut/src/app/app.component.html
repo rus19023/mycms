@@ -1,14 +1,36 @@
-<h3>I'm in the AppComponent!</h3>
-<hr>
-<app-warning-alert></app-warning-alert>
-<app-success-alert></app-success-alert>
-<app-servers></app-servers>
-<!-- <div app-servers></div> -->
-<!-- <div class="app-servers"></div> -->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <app-warning-alert></app-warning-alert>
+            <app-success-alert></app-success-alert>
+            <app-servers></app-servers>
+            <p>Add new servers or Blueprints!</p>
+            <label for="serverName">Server Name</label>
+            <input type="text" class="form-control" [(ngModel)]="newServerName">
+            <label for="serverContent">Server Content</label>
+            <input type="text" class="form-control" [(ngModel)]="newServerContent">
+            <button class="btn btn-primary" (click)="onAddBlueprint">Add Blueprint</button>
+        </div>
+    </div>
+    <hr>
+<div class="row">
+    <div class="col-xs-12">
+        <h3>My Servers</h3>
+        <hr>
+        <div 
+            class="panel panel-default"
+            *ngFor let element of serverElements; let i = index
+            (click)="onRemoveServer(i)">
+            <div class="panel-heading">{{ element.name }}</div>
+            <div class="panel-body"></div>
+        </div>
+            
+
+    </div>
+</div>
 
 <hr>
 <div>
-    <!-- <button class="btn btn-primary" (click)="toggleDisplay = !toggleDisplay">Toggle Display</button> -->
     <button class="btn btn-primary" (click)=onToggleDisplay()>Toggle Display</button>
     <br><br>
     <p *ngIf="toggleDisplay">

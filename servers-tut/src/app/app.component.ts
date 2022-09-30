@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +14,16 @@ export class AppComponent {
   toggleDisplay: boolean = false;
   log: Date[] = [];
   numberslog: number[] = [];
+  servers: string[] = [];
+
+  onAddServer() {
+    this.servers.push('Another Server');
+  }
+
+  onRemoveServer(id: number) {
+    const position = id;
+    this.servers.splice(position, 1);
+  }
 
   getTimestamp(): number {
       const current = new Date();
