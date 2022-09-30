@@ -12,28 +12,11 @@
         </div>
 
         <div class="panel-body">
-            <a class="row"
-            href="#"
-            class="list-group-item clearfix"
-            *ngFor="let contact of contacts">
-                <div class="col-md-6">
-                    <h4 class="list-group-item-heading">
-                        {{ contact.cname }}
-                    </h4>
-                </div>
-                <div class="col-md-3 m-2">
-                    <div class="pull-xs-right">
-                        <img
-                        src="{{ contact.imageUrl }}"
-                        alt="{{ contact.cname }}"
-                        class="img-responsive"
-                        style="max-height: 50px;">
-                    </div>
-                </div>
-            </a>
+            <cms-contact-item 
+                *ngFor="let contactEl of contacts"
+                [contact]="contactEl"
+                (contactSelected)="onContactSelected(contactEl)">
+            </cms-contact-item>
         </div>
     </div>
 </div>
-
-                    <!-- <p class="list-group-item-text">
-                    </p> -->
