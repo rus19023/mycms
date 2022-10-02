@@ -1,34 +1,40 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
-      <div class="row">
-        <div class="col-md-8">
-          <h2 class="panel-title header">{{ contact.cname}} </h2>
+<!-- <div class="container container-fluid"> -->
+  <div class="panel panel-default m-4">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-md-8">
+            <h2 class="panel-title header p-4 mt-2">{{ contact.cname}} </h2>
+          </div>
         </div>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xl-8 m-2">
+            <img class="m-4" 
+            src="{{ contact.imageUrl }}" 
+            alt="{{ contact.cname }}" 
+            class="img-responsive">
+            <button class="btn btn-primary m-2">Edit</button>
+            <button class="btn btn-danger m-2">Delete</button>
+          </div>     
+        </div>      
+        <hr>
+        <div class="row">
+          <div class="col-xl-8 m-2">
+            Email: {{ contact.email }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-8 m-2">
+            Phone: {{ contact.phone}}
+          </div>
+        </div>
+        <ul class="dropdown-menu">
+          <!-- <li><a href="#">To Shopping List</a></li>
+          <li><a href="#">Edit Contact</a></li>
+          <li><a href="#">Delete Contact</a></li> -->
+        </ul>
       </div>
     </div>
-    <div class="panel-body">
-      <div class="row">
-        <div class="col-md-8">
-          <img src="{{ contact.imageUrl }}" alt="{{ contact.cname }}" class="img-responsive">
-          <button class="btn btn-primary">Edit</button>
-          <button class="btn btn-danger">Delete</button>
-        </div>     
-      </div>      
-      <hr>
-      <div class="row">
-        <div class="col-xl-12">
-          Email: {{ contact.email }}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xl-8">
-          Phone: {{ contact.phone}}
-        </div>
-      </div>
-      <ul class="dropdown-menu">
-        <!-- <li><a href="#">To Shopping List</a></li>
-        <li><a href="#">Edit Contact</a></li>
-        <li><a href="#">Delete Contact</a></li> -->
-      </ul>
-    </div>
-  </div>
+  
+<!-- </div> -->
