@@ -1,15 +1,28 @@
 <nav class="navbar navbar-dark">
   <div class="container-fluid">
     <div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed p-1 m-1" data-toggle="collapse" data-target="#example-1" aria-expanded="false">
+				<!-- <span class="sr-only">Toggle Navigation</span> -->
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
       <a href="#" class="navbar-brand">WeLearn CMS</a>
     </div>
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="#">Documents</a></li>
-        <li><a href="#">Messages</a></li>
-        <li><a href="#">Contacts</a></li>
+        <li>
+          <a id="doc" href="#" (click)="onSelected('document')">Documents</a>
+        </li>
+        <li>
+          <a id="msg" href="#" (click)="onSelected('message')">Messages</a>
+        </li>
+        <li>
+          <a id="ctc" href="#" (click)="onSelected('contact')">Contacts</a>
+        </li>
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" role="button">Users <span class="caret"></span></a>
@@ -21,4 +34,34 @@
       </ul>
     </div>
   </div>
+</nav>
+
+
+<hr>
+
+
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+	
+		<!-- Brand/logo -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">WeLearn CMS</a>
+		</div>
+		
+		<!-- Collapsible Navbar -->
+		<div class="collapse navbar-collapse" id="example-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Link 1 <span class="sr-only">(current)</span></a></li>
+				<li><a href="#">Link 2</a></li>
+				<li><a href="#">Link 3</a></li>
+			</ul>
+		</div>
+	
+	</div>
 </nav>

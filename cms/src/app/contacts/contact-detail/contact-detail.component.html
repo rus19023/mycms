@@ -3,7 +3,7 @@
       <div class="panel-heading">
         <div class="row">
           <div class="col-md-8">
-            <h2 class="panel-title header p-4 mt-2">{{ contact.cname}} </h2>
+            <h2 class="panel-title header p-4 mt-2">{{ contact.cname }} </h2>
           </div>
         </div>
       </div>
@@ -14,7 +14,7 @@
             src="{{ contact.imageUrl }}" 
             alt="{{ contact.cname }}" 
             class="img-responsive">
-            <button class="btn btn-primary m-2">Edit</button>
+            <button class="btn btn-primary m-2 pull-right">Edit</button>
             <button class="btn btn-danger m-2">Delete</button>
           </div>     
         </div>      
@@ -26,7 +26,7 @@
         </div>
         <div class="row">
           <div class="col-xl-8 m-2">
-            Phone: {{ contact.phone}}
+            Phone: {{ contact.phone }}
           </div>
         </div>
         <ul class="dropdown-menu">

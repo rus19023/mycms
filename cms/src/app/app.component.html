@@ -1,7 +1,9 @@
+<cms-header (selectedFeatureEvent)="switchView($event)"></cms-header>
 <div class="col-md-12 m-0 p-0">
     <div class="row ">
-        <cms-header></cms-header>
-        <cms-contacts></cms-contacts>
+        <cms-documents *ngIf="loadedFeature === 'document'"></cms-documents>
+        <cms-message-list *ngIf="loadedFeature === 'message'"></cms-message-list>
+        <cms-contacts *ngIf="loadedFeature === 'contact'"></cms-contacts>
     </div>
 </div>
 

@@ -1,9 +1,8 @@
 .navbar, .navbar-brand {
     background: #494949;
-    color: white; 
-    font-weight: bold; 
+    color: chartreuse; 
 }
 
-li a {
-    color: white;
+.collapse .navbar-collapse {
+    color: hotpink;
 }
