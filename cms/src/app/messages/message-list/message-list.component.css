@@ -7,3 +7,20 @@
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
+.panel {
+    color: white;
+    background: grey;
+}
+
+.panel-heading {
+    background: #494949;
+    color: chartreuse;
+}
+
+.btn-success {
+    color: chartreuse;
+    background: #494949;
+    border-color: chartreuse;
+    margin: 1rem;
+}
