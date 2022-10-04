@@ -1,6 +1,7 @@
 .messageHeader {
-    background-color: azure;
-    border: solid thin black;
+    background-color: grey;
+    border: solid thin white;
+    color: chartreuse;
     border-radius: 10px;
     padding: 0.4rem;
     font-size: 1.5rem;
