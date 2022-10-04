@@ -1,31 +1,31 @@
 <!-- <div class="container container-fluid"> -->
-  <div class="panel panel-default m-4">
+  <div class="panelm-4 panel-default">
       <div class="panel-heading">
         <div class="row">
           <div class="col-md-8">
-            <h2 class="panel-title header p-4 mt-2">{{ contact.cname }} </h2>
+            <h2 class="panel-titlep-4">{{ contact.cname }} </h2>
           </div>
         </div>
       </div>
       <div class="panel-body">
         <div class="row">
-          <div class="col-xl-8 m-2">
-            <img class="m-4" 
-            src="{{ contact.imageUrl }}" 
+          <div class="col-xs-8">
+            <img 
+            src="{{ contact.imageUrl }}"
             alt="{{ contact.cname }}" 
             class="img-responsive">
-            <button class="btn btn-primary m-2 pull-right">Edit</button>
-            <button class="btn btn-danger m-2">Delete</button>
+            <button class="btn btn-primary pull-right">Edit</button>
+            <button class="btn btn-danger pull-right">Delete</button>
           </div>     
         </div>      
         <hr>
         <div class="row">
-          <div class="col-xl-8 m-2">
+          <div class="col-xs-8">
             Email: {{ contact.email }}
           </div>
         </div>
         <div class="row">
-          <div class="col-xl-8 m-2">
+          <div class="col-xs-8">
             Phone: {{ contact.phone }}
           </div>
         </div>

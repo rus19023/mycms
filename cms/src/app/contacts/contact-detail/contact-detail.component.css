@@ -1,9 +1,18 @@
-.panel {
-    color: white;
+.panel-default {
+    color: chartreuse;
     background: grey;
 }
 
 .panel-heading {
     background: #494949;
-    color: white;
+    color: chartreuse;
+}
+
+.panel-body hr {
+    color: chartreuse;
+}
+
+.panel-body {
+    margin: 2rem;
+    padding: 4rem;
 }

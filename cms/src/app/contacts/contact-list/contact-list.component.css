@@ -5,5 +5,12 @@
 
 .panel-heading {
     background: #494949;
-    color: white;
+    color: chartreuse;
+}
+
+.btn-success {
+    color: chartreuse;
+    background: #494949;
+    border-color: chartreuse;
+    margin: 1rem;
 }

@@ -3,6 +3,10 @@
     color: chartreuse; 
 }
 
-.collapse .navbar-collapse {
+.navlinks {
     color: hotpink;
+}
+
+.navlinks:hover {
+    color: magenta;
 }

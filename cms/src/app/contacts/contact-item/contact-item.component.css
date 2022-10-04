@@ -3,3 +3,16 @@ h4 {
     padding: 1rem;
 }
 
+.list-group-item { 
+    color: chartreuse;
+    border-color: white;
+    background: grey !important;
+}
+
+.list-group-item:hover { 
+    border-color: chartreuse;
+    background: #494949;
+    color: white !important;
+}
+
+
