@@ -1,0 +1,11 @@
+footer {
+    border: 1px solid white;
+}
+
+p {    
+    background: #494949;
+    color: chartreuse;
+    padding: 1rem;
+}
+
+p a { color: white;}

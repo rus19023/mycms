@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output  } from '@angular/core';
+
+import { Message } from '../message.model';
 
 @Component({
   selector: 'cms-message-item',

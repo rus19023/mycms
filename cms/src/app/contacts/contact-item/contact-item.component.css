@@ -6,13 +6,13 @@ h4 {
 .list-group-item { 
     color: chartreuse;
     border-color: white;
-    background: grey !important;
+    background: grey;
 }
 
 .list-group-item:hover { 
+    color: white;
     border-color: chartreuse;
     background: #494949;
-    color: white !important;
 }
 
 

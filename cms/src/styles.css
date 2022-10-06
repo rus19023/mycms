@@ -4,3 +4,26 @@ body {
     background: #999999;
     color: white;
 }
+
+
+
+.btn-success {
+    color: chartreuse;
+    background: white;
+    border-color: chartreuse;
+    margin: 1rem;
+    text-shadow: 1px 1px grey;
+
+}
+
+.btn-danger {
+    background: white;
+    color: magenta;
+    border: 1px solid magenta;
+    margin: 1rem;
+}
+
+.btn-danger:hover, .btn-success:hover {
+    background: #494949;
+    font-weight: bold;
+}

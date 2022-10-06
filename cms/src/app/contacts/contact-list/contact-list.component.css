@@ -14,3 +14,8 @@
     border-color: chartreuse;
     margin: 1rem;
 }
+
+.btn-success:hover {
+    border: 1px solid white;
+    color: white;
+}

@@ -13,4 +13,10 @@
     margin-top: .25rem;
     margin-left: 1rem;
     font-size: 1.5rem;
+    background: #494949;
+    color: chartreuse;
+ }
+
+ .list-group-item {
+   background: #494949;
  }
