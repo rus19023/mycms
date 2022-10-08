@@ -5,9 +5,44 @@ body {
     color: white;
 }
 
+.navbar, .navbar-brand {
+    background: #494949;
+    color: chartreuse; 
+}
+
+.navlinks {
+    color: magenta;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: magenta;
+}
+
 .panel-heading {
     background: #494949 !important;
     color: chartreuse !important;
+    border: 1px solid white;
+    border-radius: 4px 0 0 4px;
+}
+
+.panel {
+    margin: 2rem;
+}
+
+.panel-card {
+    background: #494949 !important;
+    color: chartreuse !important;
+    border-radius: 4px 0 0 4px;
+    padding: 2rem;
+}
+
+.navlinks:hover {
+    background: grey;
+    color: chartreuse;
+}
+
+.img-responsive {
+    border-radius: 4px;
 }
 
 .panel-body {

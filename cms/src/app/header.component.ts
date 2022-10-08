@@ -6,6 +6,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  navbarCollapsed = true;
   @Output() selectedFeatureEvent = new EventEmitter<string>();
 
   constructor() { }
@@ -16,5 +17,9 @@ export class HeaderComponent implements OnInit {
   onSelected(selectedEvent: string) {
     this.selectedFeatureEvent.emit(selectedEvent);
   }
+  
+  toggleHambugah() {
+    this.navbarCollapsed = !this.navbarCollapsed;
+}
 
 }

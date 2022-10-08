@@ -4,9 +4,10 @@
 }
 
 .navlinks {
-    color: hotpink;
+    color: magenta;
 }
 
 .navlinks:hover {
-    color: magenta;
+    color: chartreuse;
+    background: grey;
 }

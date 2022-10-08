@@ -68,7 +68,8 @@
               "browserTarget": "cms:build:production"
             },
             "development": {
-              "browserTarget": "cms:build:development", "port": 4200
+              "browserTarget": "cms:build:development", 
+              "port": 4200
             }
           },
           "defaultConfiguration": "development"
