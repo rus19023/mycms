@@ -10,9 +10,20 @@ h4 {
 }
 
 .list-group-item:hover { 
-    color: white;
+    color: white !important;
     border-color: chartreuse;
     background: #494949;
+}
+
+.btn-success {
+    color: chartreuse;
+    border-color: chartreuse;
+    margin: 1rem;
+}
+
+.btn-success:hover {
+    border: 1px solid white;
+    color: white;
 }
 
 

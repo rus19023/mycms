@@ -5,25 +5,61 @@ body {
     color: white;
 }
 
+.panel-heading {
+    background: #494949 !important;
+    color: chartreuse !important;
+}
 
-
-.btn-success {
+.panel-body {
+    background: grey;
     color: chartreuse;
-    background: white;
-    border-color: chartreuse;
-    margin: 1rem;
-    text-shadow: 1px 1px grey;
+}
+
+.list-group-item-heading {
+    color: white !important;
+}
+
+.list-group-item {
+    background: grey !important;
+    color: white !important;
+    border: 2px solid white !important;
+}
+
+.list-group-item:hover {
+    border: 2px solid chartreuse !important;
+    color: chartreuse !important;
 
 }
 
+.btn-success {
+    color: chartreuse;
+    border: 1px solid chartreuse;
+    margin: 1rem;
+}
+
+.btn-primary {
+    color: turquoise;
+    border: 1px solid turquoise !important;
+    margin: 1rem;
+}
+
+.btn-info {
+    color: yellow;
+    border: 1px solid yellow;
+    margin: 1rem;
+}
+
 .btn-danger {
-    background: white;
     color: magenta;
     border: 1px solid magenta;
     margin: 1rem;
 }
 
-.btn-danger:hover, .btn-success:hover {
-    background: #494949;
-    font-weight: bold;
+.btn-danger:hover, .btn-success:hover, .btn-primary:hover, .btn-info:hover {
+    color: white;
+    border: 1px solid white !important;
+}
+
+.btn {
+    background: transparent !important;
 }

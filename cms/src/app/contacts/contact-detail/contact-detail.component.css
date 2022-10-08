@@ -16,3 +16,15 @@
     margin: 2rem;
     padding: 4rem;
 }
+
+.btn-primary {
+    color: turquoise;
+    background: white;
+    border-color: chartreuse;
+    margin: 1rem;
+}
+
+.btn-primary:hover {
+    border: 1px solid white;
+    color: white;
+}

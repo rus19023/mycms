@@ -3,4 +3,27 @@ cms-root {
     max-width: 100%;
 }
 
+.list-group-item { 
+    color: chartreuse;
+    border: 1px solid white;
+    background: grey;
+}
+
+.list-group-item:hover { 
+    color: white !important;
+    border: 1px solid chartreuse;
+    background: #494949;
+}
+
+.btn-success {
+    color: chartreuse;
+    border: 1px solid chartreuse;
+    margin: 1rem;
+}
+
+.btn-success:hover {
+    color: white;
+    border: 1px solid white;
+}
+
 

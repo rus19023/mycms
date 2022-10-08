@@ -1,0 +1,556 @@
+Using High Confidence Dataset
+
+****************
+Reports for KNN model with Original Data using 3 neighbors
+
+Confusion Matrix: 
+ [[3681  168]
+ [ 421  133]]
+
+Accuracy: 0.8662275721099251
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.90      0.96      0.93      3849
+         yes       0.44      0.24      0.31       554
+
+    accuracy                           0.87      4403
+   macro avg       0.67      0.60      0.62      4403
+weighted avg       0.84      0.87      0.85      4403
+
+
+End reports for KNN model with Original Data using 3 neighbors
+&&&&&&&&&&&&&&&&
+
+
+
+****************
+Reports for KNN model with Undersampled Data using 3 neighbors
+
+Confusion Matrix: 
+ [[1893  352]
+ [ 499 1746]]
+
+Accuracy: 0.810467706013363
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.79      0.84      0.82      2245
+         yes       0.83      0.78      0.80      2245
+
+    accuracy                           0.81      4490
+   macro avg       0.81      0.81      0.81      4490
+weighted avg       0.81      0.81      0.81      4490
+
+
+End reports for KNN model with Undersampled Data using 3 neighbors
+&&&&&&&&&&&&&&&&
+
+
+
+****************
+Reports for KNN model with Oversampled Data using 3 neighbors
+
+Confusion Matrix: 
+ [[14300  1063]
+ [ 1599 13764]]
+
+Accuracy: 0.9133632754019397
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.90      0.93      0.91     15363
+         yes       0.93      0.90      0.91     15363
+
+    accuracy                           0.91     30726
+   macro avg       0.91      0.91      0.91     30726
+weighted avg       0.91      0.91      0.91     30726
+
+
+End reports for KNN model with Oversampled Data using 3 neighbors
+&&&&&&&&&&&&&&&&
+
+
+
+****************
+Reports for KNN model with Original Data using 4 neighbors
+
+Confusion Matrix: 
+ [[3771   78]
+ [ 490   64]]
+
+Accuracy: 0.8709970474676357
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.89      0.98      0.93      3849
+         yes       0.45      0.12      0.18       554
+
+    accuracy                           0.87      4403
+   macro avg       0.67      0.55      0.56      4403
+weighted avg       0.83      0.87      0.84      4403
+
+
+End reports for KNN model with Original Data using 4 neighbors
+&&&&&&&&&&&&&&&&
+
+
+
+****************
+Reports for KNN model with Undersampled Data using 4 neighbors
+
+Confusion Matrix: 
+ [[2041  204]
+ [ 849 1396]]
+
+Accuracy: 0.765478841870824
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.71      0.91      0.79      2245
+         yes       0.87      0.62      0.73      2245
+
+    accuracy                           0.77      4490
+   macro avg       0.79      0.77      0.76      4490
+weighted avg       0.79      0.77      0.76      4490
+
+
+End reports for KNN model with Undersampled Data using 4 neighbors
+&&&&&&&&&&&&&&&&
+
+
+
+****************
+Reports for KNN model with Oversampled Data using 4 neighbors
+
+Confusion Matrix: 
+ [[13827  1536]
+ [  694 14669]]
+
+Accuracy: 0.9274230293562455
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.95      0.90      0.93     15363
+         yes       0.91      0.95      0.93     15363
+
+    accuracy                           0.93     30726
+   macro avg       0.93      0.93      0.93     30726
+weighted avg       0.93      0.93      0.93     30726
+
+
+End reports for KNN model with Oversampled Data using 4 neighbors
+&&&&&&&&&&&&&&&&
+
+
+
+****************
+Reports for KNN model with Original Data using 5 neighbors
+
+Confusion Matrix: 
+ [[3724  125]
+ [ 453  101]]
+
+Accuracy: 0.8687258687258688
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.89      0.97      0.93      3849
+         yes       0.45      0.18      0.26       554
+
+    accuracy                           0.87      4403
+   macro avg       0.67      0.57      0.59      4403
+weighted avg       0.84      0.87      0.84      4403
+
+
+End reports for KNN model with Original Data using 5 neighbors
+&&&&&&&&&&&&&&&&
+
+
+
+****************
+Reports for KNN model with Undersampled Data using 5 neighbors
+
+Confusion Matrix: 
+ [[1806  439]
+ [ 611 1634]]
+
+Accuracy: 0.7661469933184856
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.75      0.80      0.77      2245
+         yes       0.79      0.73      0.76      2245
+
+    accuracy                           0.77      4490
+   macro avg       0.77      0.77      0.77      4490
+weighted avg       0.77      0.77      0.77      4490
+
+
+End reports for KNN model with Undersampled Data using 5 neighbors
+&&&&&&&&&&&&&&&&
+
+
+
+****************
+Reports for KNN model with Oversampled Data using 5 neighbors
+
+Confusion Matrix: 
+ [[12713  2650]
+ [  332 15031]]
+
+Accuracy: 0.9029486428431946
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.97      0.83      0.90     15363
+         yes       0.85      0.98      0.91     15363
+
+    accuracy                           0.90     30726
+   macro avg       0.91      0.90      0.90     30726
+weighted avg       0.91      0.90      0.90     30726
+
+
+End reports for KNN model with Oversampled Data using 5 neighbors
+&&&&&&&&&&&&&&&&
+
+
+
+****************
+Reports for Decision Tree model with Original Data using random_state
+
+Confusion Matrix: 
+ [[3547  302]
+ [ 367  187]]
+
+Accuracy: 0.8480581421757892
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.91      0.92      0.91      3849
+         yes       0.38      0.34      0.36       554
+
+    accuracy                           0.85      4403
+   macro avg       0.64      0.63      0.64      4403
+weighted avg       0.84      0.85      0.84      4403
+
+
+End reports for Decision Tree model with Original Data using random_state
+&&&&&&&&&&&&&&&&
+
+
+
+****************
+Reports for Decision Tree model with Original Data without random_state
+
+Confusion Matrix: 
+ [[3554  295]
+ [ 365  189]]
+
+Accuracy: 0.8501022030433795
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.91      0.92      0.92      3849
+         yes       0.39      0.34      0.36       554
+
+    accuracy                           0.85      4403
+   macro avg       0.65      0.63      0.64      4403
+weighted avg       0.84      0.85      0.85      4403
+
+
+End reports for Decision Tree model with Original Data without random_state
+&&&&&&&&&&&&&&&&
+
+
+
+
+
+
+
+
+Using Low Confidence Dataset
+
+****************
+Reports for KNN model with Original Data using 3 neighbors
+
+Confusion Matrix: 
+ [[4197  105]
+ [ 375   34]]
+
+Accuracy: 0.8981108045001062
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.92      0.98      0.95      4302
+         yes       0.24      0.08      0.12       409
+
+    accuracy                           0.90      4711
+   macro avg       0.58      0.53      0.53      4711
+weighted avg       0.86      0.90      0.87      4711
+
+
+End reports for KNN model with Original Data using 3 neighbors
+&&&&&&&&&&&&&&&&
+
+
+
+****************
+Reports for KNN model with Undersampled Data using 3 neighbors
+
+Confusion Matrix: 
+ [[1327  293]
+ [ 441 1179]]
+
+Accuracy: 0.7734567901234568
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.75      0.82      0.78      1620
+         yes       0.80      0.73      0.76      1620
+
+    accuracy                           0.77      3240
+   macro avg       0.78      0.77      0.77      3240
+weighted avg       0.78      0.77      0.77      3240
+
+
+End reports for KNN model with Undersampled Data using 3 neighbors
+&&&&&&&&&&&&&&&&
+
+
+
+****************
+Reports for KNN model with Oversampled Data using 3 neighbors
+
+Confusion Matrix: 
+ [[16352   868]
+ [ 3489 13731]]
+
+Accuracy: 0.8734901277584204
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.82      0.95      0.88     17220
+         yes       0.94      0.80      0.86     17220
+
+    accuracy                           0.87     34440
+   macro avg       0.88      0.87      0.87     34440
+weighted avg       0.88      0.87      0.87     34440
+
+
+End reports for KNN model with Oversampled Data using 3 neighbors
+&&&&&&&&&&&&&&&&
+
+
+
+****************
+Reports for KNN model with Original Data using 4 neighbors
+
+Confusion Matrix: 
+ [[4272   30]
+ [ 390   19]]
+
+Accuracy: 0.9108469539375929
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.92      0.99      0.95      4302
+         yes       0.39      0.05      0.08       409
+
+    accuracy                           0.91      4711
+   macro avg       0.65      0.52      0.52      4711
+weighted avg       0.87      0.91      0.88      4711
+
+
+End reports for KNN model with Original Data using 4 neighbors
+&&&&&&&&&&&&&&&&
+
+
+
+****************
+Reports for KNN model with Undersampled Data using 4 neighbors
+
+Confusion Matrix: 
+ [[1462  158]
+ [ 717  903]]
+
+Accuracy: 0.7299382716049383
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.67      0.90      0.77      1620
+         yes       0.85      0.56      0.67      1620
+
+    accuracy                           0.73      3240
+   macro avg       0.76      0.73      0.72      3240
+weighted avg       0.76      0.73      0.72      3240
+
+
+End reports for KNN model with Undersampled Data using 4 neighbors
+&&&&&&&&&&&&&&&&
+
+
+
+****************
+Reports for KNN model with Oversampled Data using 4 neighbors
+
+Confusion Matrix: 
+ [[15378  1842]
+ [  671 16549]]
+
+Accuracy: 0.9270325203252032
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.96      0.89      0.92     17220
+         yes       0.90      0.96      0.93     17220
+
+    accuracy                           0.93     34440
+   macro avg       0.93      0.93      0.93     34440
+weighted avg       0.93      0.93      0.93     34440
+
+
+End reports for KNN model with Oversampled Data using 4 neighbors
+&&&&&&&&&&&&&&&&
+
+
+
+****************
+Reports for KNN model with Original Data using 5 neighbors
+
+Confusion Matrix: 
+ [[4253   49]
+ [ 376   33]]
+
+Accuracy: 0.9097856081511356
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.92      0.99      0.95      4302
+         yes       0.40      0.08      0.13       409
+
+    accuracy                           0.91      4711
+   macro avg       0.66      0.53      0.54      4711
+weighted avg       0.87      0.91      0.88      4711
+
+
+End reports for KNN model with Original Data using 5 neighbors
+&&&&&&&&&&&&&&&&
+
+
+
+****************
+Reports for KNN model with Undersampled Data using 5 neighbors
+
+Confusion Matrix: 
+ [[1238  382]
+ [ 488 1132]]
+
+Accuracy: 0.7314814814814815
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.72      0.76      0.74      1620
+         yes       0.75      0.70      0.72      1620
+
+    accuracy                           0.73      3240
+   macro avg       0.73      0.73      0.73      3240
+weighted avg       0.73      0.73      0.73      3240
+
+
+End reports for KNN model with Undersampled Data using 5 neighbors
+&&&&&&&&&&&&&&&&
+
+
+
+****************
+Reports for KNN model with Oversampled Data using 5 neighbors
+
+Confusion Matrix: 
+ [[14257  2963]
+ [  217 17003]]
+
+Accuracy: 0.9076655052264808
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.99      0.83      0.90     17220
+         yes       0.85      0.99      0.91     17220
+
+    accuracy                           0.91     34440
+   macro avg       0.92      0.91      0.91     34440
+weighted avg       0.92      0.91      0.91     34440
+
+
+End reports for KNN model with Oversampled Data using 5 neighbors
+&&&&&&&&&&&&&&&&
+
+
+
+****************
+Reports for Decision Tree model with Original Data using random_state
+
+Confusion Matrix: 
+ [[4043  259]
+ [ 349   60]]
+
+Accuracy: 0.8709403523668011
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.92      0.94      0.93      4302
+         yes       0.19      0.15      0.16       409
+
+    accuracy                           0.87      4711
+   macro avg       0.55      0.54      0.55      4711
+weighted avg       0.86      0.87      0.86      4711
+
+
+End reports for Decision Tree model with Original Data using random_state
+&&&&&&&&&&&&&&&&
+
+
+
+****************
+Reports for Decision Tree model with Original Data without random_state
+
+Confusion Matrix: 
+ [[4041  261]
+ [ 348   61]]
+
+Accuracy: 0.8707280832095097
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          no       0.92      0.94      0.93      4302
+         yes       0.19      0.15      0.17       409
+
+    accuracy                           0.87      4711
+   macro avg       0.56      0.54      0.55      4711
+weighted avg       0.86      0.87      0.86      4711
+
+
+End reports for Decision Tree model with Original Data without random_state
+&&&&&&&&&&&&&&&&

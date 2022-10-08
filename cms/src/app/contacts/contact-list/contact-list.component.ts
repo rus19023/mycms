@@ -14,7 +14,7 @@ export class ContactListComponent implements OnInit {
     new Contact(2, 'Brother Barzee','barzeer@byui.edu', '208-496-3768', '../../assets/images/barzeer.jpg', [])
   ];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }
