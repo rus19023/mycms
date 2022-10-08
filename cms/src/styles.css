@@ -25,6 +25,11 @@ body {
     border-radius: 4px 0 0 4px;
 }
 
+.panel-footer {
+    background: #494949;
+    color: chartreuse;
+}
+
 .panel {
     margin: 2rem;
 }
@@ -36,8 +41,8 @@ body {
     padding: 2rem;
 }
 
-.navlinks:hover {
-    background: grey;
+.navlinks:hover, .open {
+    background: grey !important;
     color: chartreuse;
 }
 
