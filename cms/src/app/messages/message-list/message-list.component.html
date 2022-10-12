@@ -9,12 +9,20 @@
           <div class="panel-body">
              <div class="row">
                 <div class="col-xs-12">
-                  <cms-message-item></cms-message-item>
+                  <cms-message-item
+                     (addMessageEvent)="onAddMessage(newMessage)"                  
+                     *ngFor="let messageEl of messages"
+                     [message]="messageEl"
+                     >
+                  </cms-message-item>
                 </div>
              </div>
           </div>
           <div class="panel-footer">
-            <cms-message-edit></cms-message-edit>
+            <cms-message-edit
+            (addMessageEvent)="onAddMessage($event)"
+            >
+         </cms-message-edit>
           </div>
        </div>
     </div>

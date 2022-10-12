@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output  } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Message } from '../message.model';
 
@@ -8,10 +8,12 @@ import { Message } from '../message.model';
   styleUrls: ['./message-item.component.css']
 })
 export class MessageItemComponent implements OnInit {
+  @Input() message!: Message;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
+    console.log(`message: ${this.message}`);
   }
 
 }
