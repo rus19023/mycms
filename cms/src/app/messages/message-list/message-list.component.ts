@@ -20,11 +20,6 @@ export class MessageListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  checkForBlankString(input: string) {
-    if (input === '') || (input === null)
-        alert('Field cannot be empty')
-  }
-
   onAddMessage(newMessage: Message) {
       this.messages.push(newMessage);
       console.log(`newMessage.sender: ${newMessage.sender}`);
