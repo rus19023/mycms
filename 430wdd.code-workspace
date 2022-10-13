@@ -1,11 +1,7 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {
-		"materialkv.pythonFile": "main.py"
-		
-	}
+    "folders": [
+        {
+            "path": "."
+        }
+    ]
 }
