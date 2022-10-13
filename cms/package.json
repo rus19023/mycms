@@ -22,6 +22,7 @@
     "@fortawesome/angular-fontawesome": "^0.11.1",
     "bootstrap": "^3.4.1",
     "ngx-bootstrap": "^9.0.0",
+    "pip3": "^420.911.69",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

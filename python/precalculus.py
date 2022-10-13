@@ -31,7 +31,7 @@ def main():
     print('4-Solve Negative Exponent')
     print('5-Piecewise Graphs')
     print('6-')
-    print('')
+    print('7-Compound Interest')
     choice = int(input('Enter number of menu item: '))
     print('')
     match choice:
@@ -57,6 +57,16 @@ def main():
 
 def getint(message):
     return int(input(message))
+
+def calc_compound_interest_total(p, r, n, t):
+    p = (1 + (r / n)) ** (n * t)
+    return p
+
+def calc_compound_interest_rate(p, r, n, t):
+    p = (1 + (r / n)) ** (n * t)
+    return p
+
+
 
 def getpieces():
     x = getint('Enter x: ')

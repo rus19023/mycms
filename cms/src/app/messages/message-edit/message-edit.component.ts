@@ -27,6 +27,7 @@ export class MessageEditComponent implements OnInit {
   }
   
   onSendMessage() {
+    //debugger;
     this.currentId++;
     const msgSubject = this.subjectInputRef.nativeElement.value;
     const msgText = this.msgTextInputRef.nativeElement.value;
@@ -40,7 +41,7 @@ export class MessageEditComponent implements OnInit {
       msgText, 
       this.currentSender
       );
-    console.log(`newMessage.sender: ${newMessage.sender}`);
+    // console.log(`newMessage.sender: ${newMessage.sender}`);
     this.addMessageEvent.emit(newMessage);
   }
 
