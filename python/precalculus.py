@@ -38,8 +38,8 @@ def main():
         case 1:
             #coefficients = getcoefficients()
             #print(coefficients)
-            factortrinomial(5, -7, -6)
-            #factortrinomial(coefficients[0], coefficients[1], coefficients[2])
+            factor_trinomial(5, -7, -6)
+            #factor_trinomial(coefficients[0], coefficients[1], coefficients[2])
         case 2:
             #coefficients = getcoefficients()
             #print(coefficients)
@@ -118,7 +118,7 @@ def use_the_1(num, isleading):
     return '' if num == 1 and isleading else 1
 
 
-def factortrinomial(a, b, c):
+def factor_trinomial(a, b, c):
     print('factor trinomial: {}x\u00b2 + {}x + {}'.format(a, b, c))
     print('a: {}'.format(a))
     print('b: {}'.format(b))
@@ -128,10 +128,10 @@ def factortrinomial(a, b, c):
     if ac_orig < 0:
         acstart = ac_orig
         ac = -ac_orig
-        print('     115 ac: {}, Line Number: ()'.format(ac, frame.lineno))
+        print('______115 ac: {}, Line Number: ()'.format(ac, frame.lineno))
     else:
         acstart = -ac_orig
-        print('     118 ac: {}, Line Number: ()'.format(ac, frame.lineno))
+        print('______118 ac: {}, Line Number: ()'.format(ac, frame.lineno))
     print('119: ', acstart, ac)
     # find factors of ac that = b when added together
     # using numbers less than ac
@@ -221,12 +221,8 @@ def complete_square(A, B):
     C = 1 / 2 * B
     C = C * C
     print(' ')
-    print("Complete square:  = {}".format(C))
+    print("Complete the square:  = {}".format(C))
     print('')
-
-
-
-# #complete_square(A, B)
 
 def midpoint_line(x1, x2, y1, y2):
     print('Midpoint of a line:')
@@ -243,8 +239,8 @@ def midpoint_line(x1, x2, y1, y2):
     print(' ')
     print("Midpoint: ({},{})".format(x, y))
 
-#def circumference():
-
+def circumference():
+    pass
 def negative_exponent(a, b, exp):
     exp2 = -exp  #calculate superscript of exponent value
     print("Negative exponent of ({}/{})^{}  =  {}/{}".format(b, a, exp, b ** exp2, a ** exp2))

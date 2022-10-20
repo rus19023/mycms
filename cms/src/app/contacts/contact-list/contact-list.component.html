@@ -14,8 +14,7 @@
         <div class="panel-body m-4">
             <cms-contact-item 
                 *ngFor="let contactEl of contacts"
-                [contact]="contactEl"
-                (contactSelected)="onContactSelected(contactEl)">
+                [contact]="contactEl">
             </cms-contact-item>
         </div>
     </div>

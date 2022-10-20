@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@angular/cli": "^14.2.4",
+    "@angular/cli": "^14.2.6",
     "bootstrap": "^3.4.1"
   }
 }
