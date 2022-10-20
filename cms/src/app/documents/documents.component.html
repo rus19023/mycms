@@ -1,8 +1,6 @@
 <div class="row">
-    <div class="col-md-5 bg-secondary text-white">
-        <cms-document-list 
-            (selectedDocumentEvent)="selectedDocument = $event">
-        </cms-document-list>
+    <div class="col-md-6 bg-secondary text-white">
+        <cms-document-list></cms-document-list>
     </div>
   
     <div class="col-md-4 bg-secondary text-white">
@@ -12,6 +10,6 @@
         </cms-document-detail>
     </div>
     <ng-template #infoText>
-        <p>Please select a Document!</p>
+            <h3 class="panel-body">Please select a Document!</h3>
     </ng-template>
 </div>

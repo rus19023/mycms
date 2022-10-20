@@ -1,48 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
 body {
     max-width: 100%;
-    background: #999999;
+    background: grey;
     color: white;
 }
 
-.navbar, .navbar-brand {
-    background: #494949;
+.nav, .navbar, .navbar-brand {
+    background: #292929;
     color: chartreuse; 
 }
 
-.navlinks {
+.navlinks, .pinklink {
     color: magenta;
 }
 
 .navbar-toggle .icon-bar {
-    background-color: magenta;
+    background: magenta;
 }
 
 .panel-heading {
-    background: #494949 !important;
+    background: #292929 !important;
     color: chartreuse !important;
     border: 1px solid white;
     border-radius: 4px 0 0 4px;
 }
 
 .panel-footer {
-    background: #494949;
+    background: #292929;
     color: chartreuse;
 }
 
 .panel {
     margin: 2rem;
+    width: 100%;
 }
 
 .panel-card {
-    background: #494949 !important;
+    background: #292929 !important;
     color: chartreuse !important;
     border-radius: 4px 0 0 4px;
     padding: 2rem;
 }
 
 .navlinks:hover, .open {
-    background: grey !important;
+    background: #494949 !important;
     color: chartreuse;
 }
 
@@ -51,7 +52,7 @@ body {
 }
 
 .panel-body {
-    background: grey;
+    background: #494949;
     color: chartreuse;
 }
 
@@ -60,7 +61,7 @@ body {
 }
 
 .list-group-item {
-    background: grey !important;
+    background: #494949 !important;
     color: white !important;
     border: 2px solid white !important;
 }
@@ -69,12 +70,6 @@ body {
     border: 2px solid chartreuse !important;
     color: chartreuse !important;
 
-}
-
-.btn-success {
-    color: chartreuse;
-    border: 1px solid chartreuse;
-    margin: 1rem;
 }
 
 .btn-primary {
@@ -86,6 +81,12 @@ body {
 .btn-info {
     color: yellow;
     border: 1px solid yellow;
+    margin: 1rem;
+}
+
+.btn-success {
+    color: chartreuse;
+    border: 1px solid chartreuse;
     margin: 1rem;
 }
 

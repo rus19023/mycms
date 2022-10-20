@@ -12,7 +12,7 @@ export class DocumentDetailComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }

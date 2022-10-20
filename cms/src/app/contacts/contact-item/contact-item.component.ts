@@ -17,8 +17,7 @@ export class ContactItemComponent implements OnInit {
   }
 
   onSelected() {
-    this.contactService.contactSelected.emit(this.contact);    
-    //console.log(`this.contactService.contactSelected.cname: ${this.contactService.contactSelected}`)
+    this.contactService.contactSelected.emit(this.contact);
   }
 
 }
