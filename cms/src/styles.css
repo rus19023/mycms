@@ -10,8 +10,9 @@ body {
     color: chartreuse; 
 }
 
-.navlinks, .pinklink {
+.navlinks, .pinklink:hover {
     color: magenta;
+    text-decoration: none;
 }
 
 .navbar-toggle .icon-bar {
@@ -42,7 +43,7 @@ body {
     padding: 2rem;
 }
 
-.navlinks:hover, .open {
+.navlinks:hover, .open, .pinklink {
     background: #494949 !important;
     color: chartreuse;
 }

@@ -8,10 +8,13 @@ class="list-group-item clearfix"
         </h4>
     </div>
     <span class="pull-right ">
-        <img
+        <img *ngIf="contact.imageUrl; else infoText"
         src="{{ contact.imageUrl }}"
         alt="{{ contact.cname }}"
-          class="img-responsive"
+          class="img-responsive h6"
           style="max-height: 50px;">
     </span>
+    <ng-template #infoText>
+        <p>No image available</p>
+    </ng-template>
 </a>
