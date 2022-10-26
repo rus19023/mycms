@@ -5,6 +5,11 @@ body {
     color: white;
 }
 
+.h6 {
+    color: chartreuse;
+    background: transparent;
+}
+
 .nav, .navbar, .navbar-brand {
     background: #292929;
     color: chartreuse; 
@@ -27,7 +32,7 @@ body {
 }
 
 .panel-footer {
-    background: #292929;
+    background: grey;
     color: chartreuse;
 }
 
@@ -53,7 +58,7 @@ body {
 }
 
 .panel-body {
-    background: #494949;
+    background: grey;
     color: chartreuse;
 }
 
@@ -104,4 +109,18 @@ body {
 
 .btn {
     background: transparent !important;
+}
+
+.form-control {
+    color: white !important;
+    background: #292929 !important;
+}
+
+.form-label {
+    color: chartreuse !important;
+    background: #494949 !important;
+}
+
+.form-group {
+    border-radius: 4px !important;
 }

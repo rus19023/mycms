@@ -21,7 +21,7 @@ export class MessageEditComponent implements OnInit {
 
   constructor(private msgService: MessageService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
   
   onSendMessage() {

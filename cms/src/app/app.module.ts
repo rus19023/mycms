@@ -19,6 +19,7 @@ import { FooterComponent } from './footer/footer.component';
 
 import { DropdownDirective } from './shared/dropdown.directive';
 import { MessageService } from './messages/message.service';
+import { ContactService } from './contacts/contact.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { MessageService } from './messages/message.service';
     BrowserModule,
     FormsModule
   ],
-  providers: [MessageService],
+  providers: [ContactService, MessageService],
   bootstrap: [AppComponent],
   exports: [
     HeaderComponent,
