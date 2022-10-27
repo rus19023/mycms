@@ -1,4 +1,4 @@
-import { Injectable, EventEmitter, Input } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 import { Message } from './message.model';
 import { MOCKMESSAGES } from './MOCKMESSAGES';
@@ -10,8 +10,8 @@ import { Contact } from '../contacts/contact.model';
 export class MessageService {
   messageSelected = new EventEmitter<Message>();
   messagesChanged = new EventEmitter<Message[]>();
-  @Input() contact: Contact;
-  private messages: Message[] = [];
+  contact: Contact;
+  messages: Message[] = [];
 
   constructor(private contactService: ContactService) {
     this.messages = MOCKMESSAGES;
