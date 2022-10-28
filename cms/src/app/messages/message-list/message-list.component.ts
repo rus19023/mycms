@@ -23,13 +23,12 @@ export class MessageListComponent implements OnInit {
 
     ngOnInit() {
         this.messages = this.msgService.getMessages();
-        this.contactService.contactSelected.emit(this.contact);
+        this.contactService.contactSelectedEvent.emit(this.contact);
         this.msgService.messagesChanged
             .subscribe(
             (messages: Message[]) => {
                 this.messages = messages
-            });
-        
+            });        
         this.msgService.messageSelected
           .subscribe(
             (message: Message) => {

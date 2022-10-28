@@ -4,7 +4,7 @@ import { Contact } from './contact.model';
 import { MOCKCONTACTS } from './MOCKCONTACTS';
 
 export class ContactService {
-  contactSelected = new EventEmitter<Contact>();
+  contactSelectedEvent = new EventEmitter<Contact>();
   contact: Contact;
   private contacts: Contact[] = [];
 
@@ -14,6 +14,17 @@ export class ContactService {
 
   getContacts() {
     return this.contacts.slice();
+  }
+
+  getContact(id: number): Contact {
+    this.contacts.forEach(contact => {
+      if (this.contact.id === id) {
+        return contact;
+      } else {
+        return null;
+      }     
+    });
+    return null;
   }
 
   onSelected(): Contact {

@@ -5,12 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'WeLearn CMS';
   username = '';
-  selectedFeature = 'documents'
+  selectedFeature = 'documents';
 
-  switchView(selectedFeature: string) {
-    this.selectedFeature = selectedFeature;
-  }
 }
