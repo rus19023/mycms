@@ -19,15 +19,9 @@ h1, h2, h3, h4, h5, h6 {
     color: chartreuse;
 }
 
-p {
-    background: transparent;
+span.messageHeader {
+    background: #191919 !important;
     padding: 2rem;
-}
-
-p a { color: white;}
-
-.navbar, footer {    
-    border: 1px solid white; 
 }
 
 .navlinks, .pinklink:hover {
@@ -58,7 +52,14 @@ p a { color: white;}
 
 .panel, .container-fluid {
     margin: 2rem;
-    width: 100%;
+    max-width: 100%;
+}
+
+.panel-card {
+    background: #292929 !important;
+    color: chartreuse !important;
+    border-radius: 4px 0 0 4px;
+    padding: 2rem;
 }
 
 .navlinks:hover, .open, .pinklink {
@@ -149,28 +150,6 @@ p a { color: white;}
     border-radius: 4px !important;
 }
 
-footer, navbar {
-    max-width: 100%;
-    border-radius: 5px;
+.label-value {
+    background: transparent !important;
 }
-
-.grid-3 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-.title {
-    font-weight: bold;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  
-  .margin-left-right {
-    margin-left:1rem;
-    margin-right:1rem;
-  }
-  
-  .pad-left-right {
-    margin-left:1rem;
-    margin-right:1rem;
-  }

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Contact } from 'src/app/contacts/contact.model';
+import { ContactService } from 'src/app/contacts/contact.service';
+
 import { Message } from '../message.model';
 import { MessageService } from '../message.service';
 
@@ -9,21 +12,23 @@ import { MessageService } from '../message.service';
 })
 
 export class MessageListComponent implements OnInit {
+    contact: Contact;
     messages: Message[] = [];
 
-    constructor(private msgService: MessageService) {}
+    constructor(
+        private msgService: MessageService
+        ) {}
 
-    ngOnInit() {
+    ngOnInit() { 
+        // Loads messages array from storage
         this.messages = this.msgService.getMessages();
+        // Sends contact to service
+        
         this.msgService.messagesChanged
             .subscribe(
             (messages: Message[]) => {
                 this.messages = messages
-            }); 
-    }
-
-    onAddMessage(message: Message) {
-      this.messages.push(message);
+            });
     }
 
 }

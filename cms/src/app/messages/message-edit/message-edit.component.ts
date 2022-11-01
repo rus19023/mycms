@@ -14,7 +14,7 @@ import { MessageService } from '../message.service';
   styleUrls: ['./message-edit.component.css']
 })
 export class MessageEditComponent implements OnInit {
-  currentSender = 1;
+  currentSender = 19;
   @ViewChild('subject', { static: false }) subjectInputRef!: ElementRef;
   @ViewChild('msgText', { static: false }) msgTextInputRef!: ElementRef;
   currentId = 4;
@@ -28,10 +28,6 @@ export class MessageEditComponent implements OnInit {
     this.currentId++;
     const msgSubject = this.subjectInputRef.nativeElement.value;
     const msgText = this.msgTextInputRef.nativeElement.value;
-    // console.log(`this.currentId: ${this.currentId}`);
-    // console.log(`msgSubject: ${msgSubject}`);
-    // console.log(`msgText: ${msgText}`);
-    // console.log(`this.currentSender: ${this.currentSender}`);
     const newMessage = new Message(
 
       this.currentId, 
@@ -39,15 +35,12 @@ export class MessageEditComponent implements OnInit {
       msgText, 
       this.currentSender
       );
-    // console.log(`newMessage.sender: ${newMessage.sender}`);
     this.msgService.addMessage(newMessage);
-    // this.msgService.addMessageEvent.emit(newMessage);
   }
 
   onClear():void {
     this.subjectInputRef.nativeElement.value = '';
     this.msgTextInputRef.nativeElement.value = '';
-    //this.msgService.addMessage(newMessage);
   }
 
 }

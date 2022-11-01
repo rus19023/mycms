@@ -14,6 +14,7 @@ export class DocumentItemComponent implements OnInit {
   constructor(private documentService: DocumentService) { }
 
   ngOnInit() {
+    this.documentService.documentSelected.emit();
   }
 
   onSelected() {

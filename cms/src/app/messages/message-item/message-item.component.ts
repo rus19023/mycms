@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Message } from '../message.model';
 import { MessageService } from '../message.service';
@@ -12,19 +12,17 @@ import { ContactService } from 'src/app/contacts/contact.service';
 })
 export class MessageItemComponent implements OnInit {
   messageSender: string;
-  messageItem: Message;
+  @Input() message: Message;
 
-  constructor(private contactService: ContactService) {}
+  constructor(
+    private contactService: ContactService) {}
 
   ngOnInit() {
-    console.log(`this.message?.sender: ${this.messageItem?.sender}`)
-    const contact: Contact = this.contactService.getContact(this.messageItem.sender);
-    this.messageSender = contact?.cname;
-    console.log(`this.messageSender: ${this.messageSender}`)
-    for (const [key, value] of Object.entries(this.messageItem)) {
-      console.log(`${key}: ${value}`);
-    }
-    //console.log(`this.message?.sender: ${this.message?.sender}`)
-      
-    }
+    // Collect the contact data into the a constant contact variable 
+      console.log(`this.message.sender: ${this.message.sender}`);
+    const contact: Contact = this.contactService.getContact(this.message.sender);
+    // get the sender id from message
+    this.messageSender = contact.cname;
+
+  }
 }

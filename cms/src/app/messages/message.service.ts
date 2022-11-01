@@ -1,31 +1,26 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 import { Message } from './message.model';
 import { MOCKMESSAGES } from './MOCKMESSAGES';
-import { Contact } from '../contacts/contact.model';
-import { ContactService } from '../contacts/contact.service';
 
-@Injectable()
+
 export class MessageService {
   messagesChanged = new EventEmitter<Message[]>();
-  contact: Contact;
+  //linkMessage = new EventEmitter<Message>();
   messages: Message[] = [];
 
-  constructor(private contactService: ContactService) {
+  constructor() {
     this.messages = MOCKMESSAGES;
-   }
+   } 
 
-   getMessages(): Message[] {
-     return this.messages.slice();
-   }
-
-   getMessage(id: number) {
-    this.messages.forEach(message => {
-      if(message.id === id) {
-        return message;
-      } 
-      return null;      
-    });
+   getMessage(id: number): Message {
+     for(const message of this.messages) {
+       if(message.id === id) {
+         console.log(`message.id inside getMessage in MessageService: ${message.id}`)         
+         return message;
+       }
+     }
+     return null;
    }
 
    addMessage(message: Message) {

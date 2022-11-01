@@ -119,6 +119,15 @@ export const MOCKCONTACTS: Contact[] = [
     imageUrl: '../../assets/images/thompsonda.jpg',
     group: null
   },
+  
+  {
+    id: 19,
+    cname: 'Doris Rush-Lopez',
+    email: 'rus19023@byui.edu',
+    phone: '856-341-2849',
+    imageUrl: '../../assets/images/drl.jpg',
+    group: null
+  },
 
   // teams
   // index 13
