@@ -14,7 +14,7 @@ import { MessageService } from '../message.service';
   styleUrls: ['./message-edit.component.css']
 })
 export class MessageEditComponent implements OnInit {
-  currentSender ='Doris Rush-Lopez';
+  currentSender = 19;
   @ViewChild('subject', { static: false }) subjectInputRef!: ElementRef;
   @ViewChild('msgText', { static: false }) msgTextInputRef!: ElementRef;
   currentId = 4;

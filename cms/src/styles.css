@@ -15,6 +15,11 @@ body {
     color: chartreuse; 
 }
 
+span.messageHeader {
+    background: #191919 !important;
+    padding: 2rem;
+}
+
 .navlinks, .pinklink:hover {
     color: magenta;
     text-decoration: none;
@@ -38,7 +43,7 @@ body {
 
 .panel {
     margin: 2rem;
-    width: 100%;
+    max-width: 100%;
 }
 
 .panel-card {
@@ -123,4 +128,8 @@ body {
 
 .form-group {
     border-radius: 4px !important;
+}
+
+.label-value {
+    background: transparent !important;
 }

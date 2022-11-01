@@ -1,8 +1,7 @@
-import { Component, OnInit   } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Message } from '../message.model';
 import { Contact } from 'src/app/contacts/contact.model';
-import { MessageService } from '../message.service';
 import { ContactService } from 'src/app/contacts/contact.service';
 
 @Component({
@@ -12,33 +11,17 @@ import { ContactService } from 'src/app/contacts/contact.service';
 })
 export class MessageItemComponent implements OnInit {
   messageSender: string;
-  contact: Contact;
-  messageSelected: Message;
+  @Input() message: Message;
 
   constructor(
-    private contactService: ContactService, 
-    private msgService: MessageService
-    ) {}
+    private contactService: ContactService) {}
 
   ngOnInit() {
-    this.contactService.contactSelected
-      .subscribe(
-        (contact: Contact) => {
-          this.contact = contact;
-        });
-    this.msgService.messageSelected
-      .subscribe(
-        (message: Message) => {
-          this.messageSelected = message;
-        });
-    
-    this.msgService.messageSelected.emit(this.messageSelected);
-    console.log(`this.contact: ${this.contact}`)
-    this.contactService.contactSelected.emit(this.contact);
-    console.log(`this.contactService.contactSelected: ${this.contactService.contactSelected}`)
-    this.messageSender = this.contact?.cname;
-    console.log(`this.contact?.cname: ${this.contact?.cname}`)
-    console.log(`this.messageSender: ${this.messageSender}`)
-  }
+    // Collect the contact data into the a constant contact variable 
+      console.log(`this.message.sender: ${this.message.sender}`);
+    const contact: Contact = this.contactService.getContact(this.message.sender);
+    // get the sender id from message
+    this.messageSender = contact.cname;
 
+  }
 }

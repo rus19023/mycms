@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Contact } from 'src/app/contacts/contact.model';
 import { ContactService } from 'src/app/contacts/contact.service';
 
@@ -12,28 +12,22 @@ import { MessageService } from '../message.service';
 })
 
 export class MessageListComponent implements OnInit {
-    message: Message;
     contact: Contact;
     messages: Message[] = [];
 
     constructor(
-        private msgService: MessageService,
-        private contactService: ContactService
+        private msgService: MessageService
         ) {}
 
-    ngOnInit() {
+    ngOnInit() { 
+        // Loads messages array from storage
         this.messages = this.msgService.getMessages();
-        this.contactService.contactSelected.emit(this.contact);
+        // Sends contact to service
+        
         this.msgService.messagesChanged
             .subscribe(
             (messages: Message[]) => {
                 this.messages = messages
-            });
-        
-        this.msgService.messageSelected
-          .subscribe(
-            (message: Message) => {
-              this.message = message
             });
     }
 

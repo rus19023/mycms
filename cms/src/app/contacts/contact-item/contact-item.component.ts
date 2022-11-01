@@ -9,15 +9,19 @@ import { ContactService } from '../contact.service';
   styleUrls: ['./contact-item.component.css']
 })
 export class ContactItemComponent implements OnInit {
-  @Input() contact: Contact;
+ @Input() contact: Contact;
 
   constructor(private contactService: ContactService) {}
 
   ngOnInit() {
+    // // Collect the message data into the contact variable
+    //   console.log(`this.contact: ${this.contact}`);
+    // // get the sender id from message
+    // this.contact = this.contactService.getContact(this.contact.id);
   }
 
   onSelected() {
-    this.contactService.contactSelected.emit(this.contact);
+    this.contactService.contactSelectedEvent.emit(this.contact);
   }
 
 }
