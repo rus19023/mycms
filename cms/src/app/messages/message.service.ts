@@ -3,10 +3,8 @@ import { EventEmitter } from '@angular/core';
 import { Message } from './message.model';
 import { MOCKMESSAGES } from './MOCKMESSAGES';
 
-
 export class MessageService {
   messagesChanged = new EventEmitter<Message[]>();
-  //linkMessage = new EventEmitter<Message>();
   messages: Message[] = [];
 
   constructor() {
