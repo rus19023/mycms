@@ -13,12 +13,10 @@ export class MessageItemComponent implements OnInit {
   messageSender: string;
   @Input() message: Message;
 
-  constructor(
-    private contactService: ContactService) {}
+  constructor(private contactService: ContactService) {}
 
   ngOnInit() {
     // Collect the contact data into the a constant contact variable 
-      console.log(`this.message.sender: ${this.message.sender}`);
     const contact: Contact = this.contactService.getContact(this.message.sender);
     // get the sender id from message
     this.messageSender = contact.cname;
