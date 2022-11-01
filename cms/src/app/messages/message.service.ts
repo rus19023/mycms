@@ -1,26 +1,21 @@
-import { Injectable, EventEmitter, Input } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 import { Message } from './message.model';
 import { MOCKMESSAGES } from './MOCKMESSAGES';
-
-import { ContactService } from '../contacts/contact.service';
 import { Contact } from '../contacts/contact.model';
+import { ContactService } from '../contacts/contact.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class MessageService {
-  messageSelected = new EventEmitter<Message>();
   messagesChanged = new EventEmitter<Message[]>();
   contact: Contact;
   messages: Message[] = [];
 
   constructor(private contactService: ContactService) {
     this.messages = MOCKMESSAGES;
-    this.contactService.contactSelectedEvent.emit(this.contact);
    }
 
-   getMessages() {
+   getMessages(): Message[] {
      return this.messages.slice();
    }
 
@@ -36,5 +31,10 @@ export class MessageService {
    addMessage(message: Message) {
     this.messages.push(message);
     this.messagesChanged.emit(this.messages.slice());
+   }
+ 
+   addMessages(messages: Message[]) {
+     this.messages.push(...messages);
+     this.messagesChanged.emit(this.messages.slice());
    }
 }

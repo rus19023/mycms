@@ -17,15 +17,18 @@ export class ContactService {
   }
 
   getContact(id: number): Contact {
-    this.contacts.forEach(contact => {
-      if (this.contact.id === id) {
-        return contact;
-      } else {
-        return null;
-      }     
-    });
-    return null;
-  }
+    console.log(`this.contact.id inside getContact in ContactService: ${this.contact.id}`);
+
+    for(const contact of this.contacts) {
+      console.log(`this.contact.id inside getContact in ContactService: ${this.contact.id}`);
+          if (this.contact.id === id) {
+            console.log(`this.contact.id inside getContact in ContactService: ${this.contact.id}`);
+            return contact;
+          } 
+          return null;          
+        }
+        return null;    
+    }
 
   onSelected(): Contact {
       return this.contact;

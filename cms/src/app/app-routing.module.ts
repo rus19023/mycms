@@ -26,14 +26,14 @@ const appRoutes: Routes = [
     { path: '', component: DocumentListComponent },
     { path: 'new', component: DocumentEditComponent },
     { path: ':id', component: DocumentDetailComponent },
-    //{ path: ':id/edit', component: DocumentEditComponent },
+    { path: ':id/edit', component: DocumentEditComponent },
   ] },
-  { path: 'messages', component: MessageListComponent , children: [
-  //   { path: '', component: MessageListComponent },
-  //   { path: 'new', component: MessageEditComponent },
-  //   { path: ':id', component: MessageItemComponent },
-  //   { path: ':id/edit', component: MessageEditComponent },
-   ] },
+    { path: 'messages', component: MessageListComponent , children: [
+    { path: '', component: MessageListComponent },
+    { path: 'new', component: MessageEditComponent },
+    { path: ':id', component: MessageItemComponent },
+    { path: ':id/edit', component: MessageEditComponent },
+  ] },
 ];
 
 @NgModule({

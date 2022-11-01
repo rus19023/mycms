@@ -1,8 +1,8 @@
-import { Component, Input, OnInit   } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { Message } from '../message.model';
-import { Contact } from 'src/app/contacts/contact.model';
 import { MessageService } from '../message.service';
+import { Contact } from 'src/app/contacts/contact.model';
 import { ContactService } from 'src/app/contacts/contact.service';
 
 @Component({
@@ -11,35 +11,20 @@ import { ContactService } from 'src/app/contacts/contact.service';
   styleUrls: ['./message-item.component.css']
 })
 export class MessageItemComponent implements OnInit {
-  @Input() message: Message;
-  @Input() messageSender: string;
-  @Input() contact: Contact;
-  @Input() messageSelected: Message;
+  messageSender: string;
+  messageItem: Message;
 
-  constructor(
-    private contactService: ContactService, 
-    private msgService: MessageService
-    ) {}
+  constructor(private contactService: ContactService) {}
 
   ngOnInit() {
-    this.contactService.contactSelectedEvent
-      .subscribe(
-        (contact: Contact) => {
-          this.contact = contact;
-        });
-    this.msgService.messageSelected
-      .subscribe(
-        (message: Message) => {
-          this.messageSelected = message;
-        });
-    
-    this.msgService.messageSelected.emit(this.messageSelected);
-    console.log(`this.contact: ${this.contact}`)
-    this.contactService.contactSelectedEvent.emit(this.contact);
-    console.log(`this.contactService.contactSelectedEvent: ${this.contactService.contactSelectedEvent}`)
-    this.messageSender = this.contact?.cname;
-    console.log(`this.contact?.cname: ${this.contact?.cname}`)
+    console.log(`this.message?.sender: ${this.messageItem?.sender}`)
+    const contact: Contact = this.contactService.getContact(this.messageItem.sender);
+    this.messageSender = contact?.cname;
     console.log(`this.messageSender: ${this.messageSender}`)
-  }
-
+    for (const [key, value] of Object.entries(this.messageItem)) {
+      console.log(`${key}: ${value}`);
+    }
+    //console.log(`this.message?.sender: ${this.message?.sender}`)
+      
+    }
 }

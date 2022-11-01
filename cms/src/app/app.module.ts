@@ -31,11 +31,11 @@ import { FooterComponent } from './footer/footer.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 
 // Services
-import { MessageService } from './messages/message.service';
 import { ContactService } from './contacts/contact.service';
 
 // Routing
 import { AppRoutingModule } from './app-routing.module';
+import { MessageService } from './messages/message.service';
 
 @NgModule({
   declarations: [
@@ -45,17 +45,17 @@ import { AppRoutingModule } from './app-routing.module';
     ContactListComponent,
     ContactDetailComponent,
     ContactItemComponent,
+    ContactNewComponent,
     DocumentListComponent,
     DocumentDetailComponent,
     DocumentItemComponent,
+    DocumentEditComponent,
     DocumentsComponent,
+    MessageListComponent,
     MessageItemComponent,
     MessageEditComponent,
-    MessageListComponent,
     FooterComponent,
-    DropdownDirective,
-    DocumentEditComponent,
-    ContactNewComponent
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
@@ -73,8 +73,9 @@ import { AppRoutingModule } from './app-routing.module';
     DocumentEditComponent,
     ContactNewComponent,
     DocumentItemComponent,
-    ContactNewComponent
+    ContactNewComponent,
+    MessageItemComponent
     
   ]
 })
-export class AppModule { }
+export class AppModule {}
