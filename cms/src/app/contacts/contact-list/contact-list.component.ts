@@ -11,6 +11,7 @@ import { ContactService } from '../contact.service';
 
 export class ContactListComponent implements OnInit {
   contacts: Contact[];
+  //@Input() index: number;
 
   constructor(private contactService: ContactService) {}
 

@@ -14,7 +14,7 @@
             src="{{ contact.imageUrl }}"
             alt="{{ contact.cname }}" 
             class="img-responsive">
-            <button class="btn btn-info pull-right">Edit</button>
+            <button [routerLink]="['new']" class="btn btn-info pull-right">Edit</button>
             <button class="btn btn-danger pull-right">Delete</button>
           </div>     
         </div>      
@@ -32,9 +32,9 @@
           </div>
         </div>
         <ul class="dropdown-menu">
-          <!-- <li><a href="#">To Shopping List</a></li>
-          <li><a href="#">Edit Contact</a></li>
-          <li><a href="#">Delete Contact</a></li> -->
+          <!-- <li><[routerLink]="['']" style="cursor: pointer">To Shopping List</a></li>
+          <li><[routerLink]="['']" style="cursor: pointer">Edit Contact</a></li>
+          <li><[routerLink]="['']" style="cursor: pointer">Delete Contact</a></li> -->
         </ul>
       </div>
     </div>

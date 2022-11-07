@@ -10,15 +10,12 @@ import { DocumentService } from '../document.service';
 })
 export class DocumentItemComponent implements OnInit {
   @Input() document!: Document;
+  @Input() index: number;
 
   constructor(private documentService: DocumentService) { }
 
   ngOnInit() {
     this.documentService.documentSelected.emit();
-  }
-
-  onSelected() {
-    this.documentService.documentSelected.emit(this.document); 
   }
 
 }
