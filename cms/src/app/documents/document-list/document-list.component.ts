@@ -14,12 +14,18 @@ export class DocumentListComponent implements OnInit {
   documents: Document[] = [];
 
   constructor(
-    private documentService: DocumentService,
+    private docService: DocumentService,
     private router: Router,
     private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.documents = this.documentService.getDocuments();
+    this.documents = this.docService.getDocuments();
+    this.docService.documentChangedEvent 
+      .subscribe(
+      (documents: Document[]) => {
+          this.documents = documents;
+      });
+
   }
 
   onNewDocument() {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Params } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
+
 
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
@@ -14,9 +14,11 @@ import { ContactService } from '../contact.service';
 export class ContactDetailComponent implements OnInit {
   contact: Contact;
   id: number;
+  
 
   constructor(
     private contactService: ContactService,
+    private router: Router, 
     private route: ActivatedRoute) {}
 
   ngOnInit() {
