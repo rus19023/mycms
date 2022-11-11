@@ -132,4 +132,6 @@ span.messageHeader {
 
 .label-value {
     background: transparent !important;
+    color: #090909;
+    font-weight: bold;
 }
