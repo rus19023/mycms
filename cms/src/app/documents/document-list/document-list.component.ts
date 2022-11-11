@@ -24,8 +24,8 @@ export class DocumentListComponent implements OnInit {
       .subscribe(
       (documents: Document[]) => {
           this.documents = documents;
-      });
-
+      }
+    );
   }
 
   onNewDocument() {

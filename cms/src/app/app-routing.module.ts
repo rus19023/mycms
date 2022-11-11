@@ -24,7 +24,6 @@ const appRoutes: Routes = [
     { path: ':id/edit', component: ContactEditComponent },
   ] },
   { path: 'documents', component: DocumentsComponent , children: [
-    { path: '', redirectTo: '/documents', pathMatch: 'full' },
     { path: '', component: DocumentListComponent },
     { path: 'new', component: DocumentEditComponent },
     { path: ':id', component: DocumentDetailComponent },

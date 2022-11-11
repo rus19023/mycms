@@ -13,11 +13,11 @@ export class DocumentItemComponent implements OnInit {
   @Input() index: number;
 
   constructor(private docService: DocumentService) {
-    this.docService.documentChangedEvent.emit(this.document);
+    // console.log(this.document);
+    // this.docService.documentChangedEvent.emit(this.document);
    }
 
-  ngOnInit() {
-    
+  ngOnInit() {    
   }
 
 }
