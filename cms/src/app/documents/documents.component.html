@@ -4,10 +4,7 @@
     </div>
   
     <div class="col-md-4 bg-secondary text-white">
-        <cms-document-detail 
-            *ngIf="selectedDocument; else infoText"
-            [document]="selectedDocument">
-        </cms-document-detail>
+        <router-outlet></router-outlet>    
     </div>
     <ng-template #infoText>
             <h3 class="panel-body">Please select a Document!</h3>

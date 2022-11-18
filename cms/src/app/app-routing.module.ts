@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ContactsComponent } from './contacts/contacts.component';
+import { ContactListComponent } from './contacts/contact-list/contact-list.component';
 import { ContactDetailComponent } from './contacts/contact-detail/contact-detail.component';
-import { ContactNewComponent } from './contacts/contact-new/contact-new.component';
+import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
 
 import { DocumentsComponent } from './documents/documents.component';
 import { DocumentListComponent } from './documents/document-list/document-list.component';
@@ -17,10 +18,10 @@ import { MessageEditComponent } from './messages/message-edit/message-edit.compo
 const appRoutes: Routes = [
   { path: '', redirectTo: '/contacts', pathMatch: 'full' },
   { path: 'contacts', component: ContactsComponent, children: [
-    { path: '', component: ContactsComponent },
-    { path: 'new', component: ContactNewComponent },
+    { path: '', component: ContactListComponent },
+    { path: 'new', component: ContactEditComponent },
     { path: ':id', component: ContactDetailComponent },
-    { path: ':id/edit', component: ContactNewComponent },
+    { path: ':id/edit', component: ContactEditComponent },
   ] },
   { path: 'documents', component: DocumentsComponent , children: [
     { path: '', component: DocumentListComponent },
@@ -40,6 +41,9 @@ const appRoutes: Routes = [
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule {
+
+}
 
 }

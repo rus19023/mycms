@@ -9,6 +9,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'WeLearn CMS';
   username = '';
-  selectedFeature = 'documents';
 
 }

@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Params, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'cms-document-edit',
-  templateUrl: './document-edit.component.html',
-  styleUrls: ['./document-edit.component.css']
+  selector: 'cms-contact-edit',
+  templateUrl: './contact-edit.component.html',
+  styleUrls: ['./contact-edit.component.css']
 })
-export class DocumentEditComponent implements OnInit {
+export class ContactEditComponent implements OnInit {
   id: number;
   editMode = false;
 
@@ -16,7 +16,6 @@ export class DocumentEditComponent implements OnInit {
     this.route.params
       .subscribe(
         (params: Params) => {
-          // '+' converts string into number
           this.id = +params['id'];
           this.editMode = params['id'] != null;
         }

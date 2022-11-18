@@ -10,7 +10,8 @@ import { ContactService } from '../contact.service';
 })
 
 export class ContactListComponent implements OnInit {
-  @Input() contacts: Contact[];
+  contacts: Contact[];
+  //@Input() index: number;
 
   constructor(private contactService: ContactService) {}
 

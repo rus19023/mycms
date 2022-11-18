@@ -1,42 +1,35 @@
-<div class="container container-fluid">
-  <div class="panel panel-default">
-      <div class="panel-heading">
-        <div class="row">
-          <div class="col-lg-8">
-            <h2 class="panel-title p-4">{{ contact.cname }} </h2>
-          </div>
-        </div>
-      </div>
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-lg-8 grid-3">
-            <div>
-              <img 
-              src="{{ contact.imageUrl }}"
-              alt="{{ contact.cname }}" 
-              class="img-responsive">
-            </div>
-            <div>
-              <button class="btn btn-info pull-right">Edit</button>
-            </div>
-            <div>
-              <button class="btn btn-danger pull-right">Delete</button>
-            </div>
-          </div>     
-        </div> 
-        <div class="panel-footer">
-          <div class="row">
-              Email: {{ contact.email }}
-          </div>
-          <div class="row">
-              Phone: {{ contact.phone }}
-          </div>
-        </div>
-        <ul class="dropdown-menu">
-          <!-- <li><a href="#">To Shopping List</a></li>
-          <li><a href="#">Edit Contact</a></li>
-          <li><a href="#">Delete Contact</a></li> -->
-        </ul>
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row">
+          <h2 class="title pad-left-right">{{ contact.cname }} </h2>
       </div>
     </div>
-</div>
+    <div class="panel-body">
+      <div class="row panel-card">
+          <img 
+          src="{{ contact.imageUrl }}"
+          alt="{{ contact.cname }}" 
+          class="img-responsive">
+          <button [routerLink]="['edit']" class="btn btn-info pull-right">Edit</button>
+          <button (click)="onDeleteContact()" class="btn btn-danger pull-right">Delete</button>
+      </div>      
+      <hr>
+      <div class="panel-footer">
+        <div class="row">
+          <div class="col-lg-8">
+            Email: {{ contact.email }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8">
+            Phone: {{ contact.phone }}
+          </div>
+        </div>
+      </div>
+      <ul class="dropdown-menu">
+        <!-- <li><[routerLink]="['']" style="cursor: pointer">To Shopping List</a></li>
+        <li><[routerLink]="['']" style="cursor: pointer">Edit Contact</a></li>
+        <li><[routerLink]="['']" style="cursor: pointer">Delete Contact</a></li> -->
+      </ul>
+    </div>
+  </div>

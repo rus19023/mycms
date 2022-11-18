@@ -1,4 +1,2 @@
-<a class="list-group-item clearfix documentDiv"
-  (click)="onSelected()">
-    {{ document.dname }}
+<a class="list-group-item clearfix documentDiv" style="cursor: pointer;" [routerLink]="[index]" routerLinkActive="active"> {{ document.dname }}
 </a>

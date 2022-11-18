@@ -1,6 +1,9 @@
 {
   "dependencies": {
     "@angular/cli": "^14.2.6",
-    "bootstrap": "^3.4.1"
+    "bootstrap": "^3.4.1",
+    "loader-utils": "^3.2.1",
+    "rxjs": "^7.5.7",
+    "rxjs-compat": "^6.6.7"
   }
 }

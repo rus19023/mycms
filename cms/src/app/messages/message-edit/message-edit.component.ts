@@ -17,7 +17,7 @@ export class MessageEditComponent implements OnInit {
   currentSender = 19;
   @ViewChild('subject', { static: false }) subjectInputRef!: ElementRef;
   @ViewChild('msgText', { static: false }) msgTextInputRef!: ElementRef;
-  currentId = 4;
+  maxContactId = 4;
 
   constructor(private msgService: MessageService) {}
 
@@ -25,12 +25,15 @@ export class MessageEditComponent implements OnInit {
   }
   
   onSendMessage() {
-    this.currentId++;
+    this.maxContactId++;
     const msgSubject = this.subjectInputRef.nativeElement.value;
     const msgText = this.msgTextInputRef.nativeElement.value;
+    // console.log(`this.maxContactId: ${this.maxContactId}`);
+    // console.log(`msgSubject: ${msgSubject}`);
+    // console.log(`msgText: ${msgText}`);
+    // console.log(`this.currentSender: ${this.currentSender}`);
     const newMessage = new Message(
-
-      this.currentId, 
+      this.maxContactId, 
       msgSubject, 
       msgText, 
       this.currentSender

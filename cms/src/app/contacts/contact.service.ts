@@ -1,4 +1,5 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 import { Contact } from './contact.model';
 import { MessageService } from '../messages/message.service';
@@ -8,7 +9,8 @@ import { MOCKCONTACTS } from './MOCKCONTACTS';
   providedIn: 'root'
 })
 export class ContactService {
-  contactSelectedEvent = new EventEmitter<Contact>();
+  contactSelectedEvent = new Subject<Contact>();
+  contactChangedEvent = new Subject<Contact[]>();
   contact: Contact;
   private contacts: Contact[] = [];
 
@@ -26,8 +28,24 @@ export class ContactService {
     return null;
   }
 
+  getContactByID(index: number) {
+    return this.contacts[index];
+  }
+
   getContacts() {
     return this.contacts.slice();
   }
+
+  deleteContact(contact: Contact) {
+   if (!contact) {
+      return;
+   }
+   const pos = this.contacts.indexOf(contact);
+   if (pos < 0) {
+      return;
+   }
+   this.contacts.splice(pos, 1);
+   this.contactChangedEvent.next(this.contacts.slice());
+}
 
 }

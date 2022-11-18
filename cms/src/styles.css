@@ -52,15 +52,21 @@ span.messageHeader {
 
 .panel, .container-fluid {
     margin: 2rem;
-    max-width: 100%;
+    max-width: 90%;
 }
 
 .panel-card {
-    background: #292929 !important;
+    background: #393939 !important;
     color: chartreuse !important;
     border-radius: 4px 0 0 4px;
     padding: 2rem;
 }
+
+.center-panel {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
 
 .navlinks:hover, .open, .pinklink {
     background: #494949 !important;
@@ -76,6 +82,7 @@ span.messageHeader {
 .panel-body {
     background: #494949;
     color: chartreuse;
+    width: 100%;
 }
 
 .documentDiv {
@@ -152,4 +159,16 @@ span.messageHeader {
 
 .label-value {
     background: transparent !important;
+    color: #090909;
+    font-weight: bold;
 }
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .pad-left-right{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
