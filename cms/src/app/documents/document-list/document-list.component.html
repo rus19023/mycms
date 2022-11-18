@@ -3,15 +3,12 @@
         <div class="panel-heading">
             <div class="row pad-left-right">
                 <span class="pull-left title">Documents</span>
-                <a [routerLink]="['new']" class="btn btn-success pull-right">Add Document</a>
+                <a class="btn btn-success pull-right">Add Document</a>
             </div>
         </div>
         <div class="panel-body">
             <div class="center-panel">
-                <cms-document-item 
-                    *ngFor="let documentEl of documents"
-                    [document]="documentEl" style="cursor: pointer">
-                </cms-document-item>  
+                
             </div>
         </div>    
     </div>
