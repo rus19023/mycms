@@ -14,7 +14,7 @@ export class MessageService {
    getMessage(id: number): Message {
      for(const message of this.messages) {
        if(message.id === id) {
-         console.log(`message.id inside getMessage in MessageService: ${message.id}`)         
+         //console.log(`message.id inside getMessage in MessageService: ${message.id}`)         
          return message;
        }
      }
