@@ -11,7 +11,6 @@ export class DocumentService {
 
   constructor() {
     this.documents = MOCKDOCUMENTS;
-    console.log(this.maxDocumentId);
     this.maxDocumentId = this.getMaxId();
    }
 
@@ -37,7 +36,7 @@ export class DocumentService {
    }
 
    addDocument(newDocument: Document) {
-      if ((newDocument === undefined) || (newDocument === null)) {
+      if (!newDocument) {
          console.log('No document info received.');
          return;
       } else {
@@ -62,13 +61,14 @@ export class DocumentService {
       }      
       newDocument.id = originalDocument.id;
       this.documents[pos] = newDocument;
-      this.documentListChangedEvent.next(this.documents.slice())
+      let documentsListClone = this.documents.slice();
+      this.documentListChangedEvent.next(documentsListClone);
    }
 
    deleteDocument(document: Document) {
       if (!document) {
          console.log('No document info received.');
-          return;
+         return;
       }
       const pos = this.documents.indexOf(document);
       if (pos < 0) {
@@ -76,7 +76,8 @@ export class DocumentService {
          return;
       }
       this.documents.splice(pos, 1);
-      this.documentListChangedEvent.next(this.documents.slice());
+      let documentsListClone = this.documents.slice();
+      this.documentListChangedEvent.next(documentsListClone);
    }
 }
 

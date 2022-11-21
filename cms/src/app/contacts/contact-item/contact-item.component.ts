@@ -9,6 +9,7 @@ import { ContactService } from '../contact.service';
   templateUrl: './contact-item.component.html',
   styleUrls: ['./contact-item.component.css']
 })
+
 export class ContactItemComponent implements OnInit {
  @Input() contact: Contact;
  @Input() index: number;
@@ -16,10 +17,6 @@ export class ContactItemComponent implements OnInit {
   constructor(private contactService: ContactService) {}
 
   ngOnInit() {
-  }
-
-  onSelected() {
-    this.contactService.contactSelectedEvent.emit(this.contact);
   }
 
 }

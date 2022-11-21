@@ -11,6 +11,10 @@ export class MessageService {
     this.messages = MOCKMESSAGES;
    } 
 
+   getMessages() {
+    return this.messages.slice();
+  }
+
    getMessage(id: number): Message {
      for(const message of this.messages) {
        if(message.id === id) {
@@ -30,4 +34,5 @@ export class MessageService {
      this.messages.push(...messages);
      this.messagesChanged.emit(this.messages.slice());
    }
+   
 }
