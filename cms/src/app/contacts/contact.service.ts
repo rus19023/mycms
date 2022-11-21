@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 
 import { Contact } from './contact.model';
@@ -10,9 +12,10 @@ import { MOCKCONTACTS } from './MOCKCONTACTS';
 })
 export class ContactService {
   contactSelectedEvent = new Subject<Contact>();
-  contactChangedEvent = new Subject<Contact[]>();
+  contactListChangedEvent = new Subject<Contact[]>();
   contact: Contact;
-  private contacts: Contact[] = [];
+  private contacts: Contact[];
+  maxDocumentId: number;
 
   constructor(private msgService: MessageService) { 
     this.contacts = MOCKCONTACTS;
@@ -26,7 +29,20 @@ export class ContactService {
       }
     }
     return null;
-  }
+  }  
+
+//   getMaxId(): number {
+//     let maxId = 0;
+//     this.contacts.forEach(element => {
+//        let currentId = element.id;
+//        console.log(`element.id: ${element.id}`)
+//        if (currentId > maxId) {
+//           maxId = currentId;
+//        }
+//     });  
+//     console.log(`maxId: ${maxId}`);
+//     return maxId;
+//  }
 
   getContactByID(index: number) {
     return this.contacts[index];
@@ -37,15 +53,15 @@ export class ContactService {
   }
 
   deleteContact(contact: Contact) {
-   if (!contact) {
-      return;
-   }
-   const pos = this.contacts.indexOf(contact);
-   if (pos < 0) {
-      return;
-   }
-   this.contacts.splice(pos, 1);
-   this.contactChangedEvent.next(this.contacts.slice());
-}
+    if (!contact) {
+       return;
+    }
+    const pos = this.contacts.indexOf(contact);
+    if (pos < 0) {
+       return;
+    }
+    this.contacts.splice(pos, 1);
+    this.contactListChangedEvent.next(this.contacts.slice());
+ }
 
 }

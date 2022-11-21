@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 
 import { Message } from '../message.model';
-import { MessageService } from '../message.service';
+import { MessageService } from '../message.service';   
 
 @Component({
   selector: 'cms-message-edit',
@@ -38,15 +38,12 @@ export class MessageEditComponent implements OnInit {
       msgText, 
       this.currentSender
       );
-    // console.log(`newMessage.sender: ${newMessage.sender}`);
     this.msgService.addMessage(newMessage);
-    // this.msgService.addMessageEvent.emit(newMessage);
   }
 
   onClear():void {
     this.subjectInputRef.nativeElement.value = '';
     this.msgTextInputRef.nativeElement.value = '';
-    //this.msgService.addMessage(newMessage);
   }
 
 }

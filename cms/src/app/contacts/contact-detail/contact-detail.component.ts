@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
-
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
 
@@ -19,7 +18,8 @@ export class ContactDetailComponent implements OnInit {
   constructor(
     private contactService: ContactService,
     private router: Router, 
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute
+    ) {}
 
   ngOnInit() {
     this.route.params

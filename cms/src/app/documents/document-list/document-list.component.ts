@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -12,8 +12,10 @@ import { DocumentService } from '../document.service';
 })
 
 export class DocumentListComponent implements OnInit {
-  documents: Document[] = [];
-  subscription: Subscription;   
+  documents: Document[];
+  index: number;
+  subscription: Subscription;
+  maxDocumentId: number;   
 
   constructor(
     private docService: DocumentService,
@@ -22,13 +24,14 @@ export class DocumentListComponent implements OnInit {
     ) {}
 
   ngOnInit() {
+    this.documents = this.docService.getDocuments();
     this.subscription = this.docService.documentListChangedEvent  
       .subscribe(
       (documentsList: Document[]) => {
           this.documents = documentsList;
       }
     );
-    console.log(`this.documents: ${this.documents}`);
+    //console.log(`this.documents: ${this.documents}`);
   }
 
   onNewDocument() {

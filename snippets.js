@@ -4,4 +4,3 @@ this.messages.forEach(function(message) {
     console.log(`message.msgText: ${message.msgText}`);
     console.log(`message.sender: ${message.sender}`);
 });
-

@@ -5,11 +5,15 @@ import { MOCKMESSAGES } from './MOCKMESSAGES';
 
 export class MessageService {
   messagesChanged = new EventEmitter<Message[]>();
-  messages: Message[] = [];
+  messages: Message[];
 
   constructor() {
     this.messages = MOCKMESSAGES;
    } 
+
+   getMessages() {
+    return this.messages.slice();
+  }
 
    getMessage(id: number): Message {
      for(const message of this.messages) {
@@ -21,10 +25,6 @@ export class MessageService {
      return null;
    }
 
-   getMessages() {
-     return this.messages.slice();
-   }
-
    addMessage(message: Message) {
     this.messages.push(message);
     this.messagesChanged.emit(this.messages.slice());
@@ -34,4 +34,5 @@ export class MessageService {
      this.messages.push(...messages);
      this.messagesChanged.emit(this.messages.slice());
    }
+   
 }
