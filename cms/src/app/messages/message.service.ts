@@ -21,10 +21,6 @@ export class MessageService {
      return null;
    }
 
-   getMessages() {
-     return this.messages.slice();
-   }
-
    addMessage(message: Message) {
     this.messages.push(message);
     this.messagesChanged.emit(this.messages.slice());

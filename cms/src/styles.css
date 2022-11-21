@@ -5,14 +5,18 @@ body {
     color: white;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    padding: 2% !important;
+}
+
 .h6 {
     color: chartreuse;
     background: transparent;
 }
 
-.nav, .navbar, .navbar-brand {
-    background: #292929;
-    color: chartreuse; 
+.nav, .navbar, .navbar-brand, footer {
+    background: #191919;
+    color: chartreuse;
 }
 
 span.messageHeader {
@@ -29,11 +33,16 @@ span.messageHeader {
     background: magenta;
 }
 
-.panel-heading {
-    background: #292929 !important;
+.row, .grid-3 {
+    padding: 2%;
+}
+
+.panel-heading, .panel-card {
+    background: #191919 !important;
     color: chartreuse !important;
     border: 1px solid white;
     border-radius: 4px 0 0 4px;
+    padding: 2%;
 }
 
 .panel-footer {
@@ -41,7 +50,7 @@ span.messageHeader {
     color: chartreuse;
 }
 
-.panel {
+.panel, .container-fluid {
     margin: 2rem;
     max-width: 90%;
 }
@@ -65,13 +74,19 @@ span.messageHeader {
 }
 
 .img-responsive {
+    margin: 4%;
+    border: 2px solid white;
     border-radius: 4px;
 }
 
 .panel-body {
-    background: grey;
+    background: #494949;
     color: chartreuse;
     width: 100%;
+}
+
+.documentDiv {
+    width: 30% !important;
 }
 
 .list-group-item-heading {
@@ -79,14 +94,20 @@ span.messageHeader {
 }
 
 .list-group-item {
-    background: #494949 !important;
+    align-items: center;
+    background: #191919 !important;
     color: white !important;
     border: 2px solid white !important;
+    padding: 10px !important;
+    margin: 5px !important;
+
 }
 
 .list-group-item:hover {
-    border: 2px solid chartreuse !important;
+    border: 4px solid chartreuse !important;
     color: chartreuse !important;
+    font-weight: bolder;
+
 }
 
 .btn-primary {
