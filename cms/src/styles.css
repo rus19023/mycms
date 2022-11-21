@@ -37,27 +37,21 @@ span.messageHeader {
 }
 
 .panel-footer {
-    background: #191919;
+    background: grey;
     color: chartreuse;
 }
 
 .panel {
     margin: 2rem;
-    max-width: 90%;
+    max-width: 100%;
 }
 
 .panel-card {
-    background: #393939 !important;
+    background: #292929 !important;
     color: chartreuse !important;
     border-radius: 4px 0 0 4px;
     padding: 2rem;
 }
-
-.center-panel {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-  }
 
 .navlinks:hover, .open, .pinklink {
     background: #494949 !important;
@@ -71,7 +65,6 @@ span.messageHeader {
 .panel-body {
     background: #494949;
     color: chartreuse;
-    width: 100%;
 }
 
 .list-group-item-heading {
@@ -142,13 +135,3 @@ span.messageHeader {
     color: #090909;
     font-weight: bold;
 }
-
-.title {
-    font-size: 2.5rem;
-    font-weight: bold;
-  }
-  
-  .pad-left-right{
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
