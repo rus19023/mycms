@@ -44,7 +44,7 @@ import { ContactEditComponent } from './contacts/contact-edit/contact-edit.compo
     ContactListComponent,
     ContactDetailComponent,
     ContactItemComponent,
-    ContactNewComponent,
+    ContactEditComponent,
     DocumentListComponent,
     DocumentDetailComponent,
     DocumentItemComponent,
@@ -54,8 +54,7 @@ import { ContactEditComponent } from './contacts/contact-edit/contact-edit.compo
     MessageItemComponent,
     MessageEditComponent,
     FooterComponent,
-    DropdownDirective,
-    ContactEditComponent
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
@@ -71,9 +70,8 @@ import { ContactEditComponent } from './contacts/contact-edit/contact-edit.compo
     ContactDetailComponent,
     ContactItemComponent,
     DocumentEditComponent,
-    ContactNewComponent,
     DocumentItemComponent,
-    ContactNewComponent,
+    ContactEditComponent,
     MessageItemComponent
     
   ]

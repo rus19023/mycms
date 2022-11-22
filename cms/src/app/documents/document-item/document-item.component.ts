@@ -14,7 +14,7 @@ export class DocumentItemComponent implements OnInit {
 
   constructor(private docService: DocumentService) {
     // console.log(this.document);
-    // this.docService.documentChangedEvent.emit(this.document);
+    //this.docService.documentListChangedEvent.next(this.document);
    }
 
   ngOnInit() {    
