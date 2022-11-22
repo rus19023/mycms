@@ -19,7 +19,8 @@ export class ContactDetailComponent implements OnInit {
   constructor(
     private contactService: ContactService,
     private router: Router, 
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute
+    ) {}
 
   ngOnInit() {
     this.route.params

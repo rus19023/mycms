@@ -5,18 +5,14 @@ body {
     color: white;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    padding: 2% !important;
-}
-
 .h6 {
     color: chartreuse;
     background: transparent;
 }
 
-.nav, .navbar, .navbar-brand, footer {
-    background: #191919;
-    color: chartreuse;
+.nav, .navbar, .navbar-brand {
+    background: #292929;
+    color: chartreuse; 
 }
 
 span.messageHeader {
@@ -33,40 +29,29 @@ span.messageHeader {
     background: magenta;
 }
 
-.row, .grid-3 {
-    padding: 2%;
-}
-
-.panel-heading, .panel-card {
-    background: #191919 !important;
+.panel-heading {
+    background: #292929 !important;
     color: chartreuse !important;
     border: 1px solid white;
     border-radius: 4px 0 0 4px;
-    padding: 2%;
 }
 
 .panel-footer {
-    background: #191919;
+    background: grey;
     color: chartreuse;
 }
 
-.panel, .container-fluid {
+.panel {
     margin: 2rem;
-    max-width: 90%;
+    max-width: 100%;
 }
 
 .panel-card {
-    background: #393939 !important;
+    background: #292929 !important;
     color: chartreuse !important;
     border-radius: 4px 0 0 4px;
     padding: 2rem;
 }
-
-.center-panel {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-  }
 
 .navlinks:hover, .open, .pinklink {
     background: #494949 !important;
@@ -74,19 +59,12 @@ span.messageHeader {
 }
 
 .img-responsive {
-    margin: 4%;
-    border: 2px solid white;
     border-radius: 4px;
 }
 
 .panel-body {
     background: #494949;
     color: chartreuse;
-    width: 100%;
-}
-
-.documentDiv {
-    width: 30% !important;
 }
 
 .list-group-item-heading {
@@ -94,19 +72,14 @@ span.messageHeader {
 }
 
 .list-group-item {
-    align-items: center;
     background: #191919 !important;
     color: white !important;
     border: 2px solid white !important;
-    padding: 10px !important;
-    margin: 5px !important;
-
 }
 
 .list-group-item:hover {
-    border: 4px solid chartreuse !important;
+    border: 2px solid chartreuse !important;
     color: chartreuse !important;
-    font-weight: bolder;
 
 }
 
@@ -162,13 +135,3 @@ span.messageHeader {
     color: #090909;
     font-weight: bold;
 }
-
-.title {
-    font-size: 2.5rem;
-    font-weight: bold;
-  }
-  
-  .pad-left-right{
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
