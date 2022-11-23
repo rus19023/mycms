@@ -12,7 +12,9 @@
               size="120"
               max="120"
               name="dname"
-              [ngModel]=document?.dname>
+              #name="ngModel"
+              [ngModel]=document?.dname
+              required>
           </div>
         </div>
   
@@ -26,8 +28,9 @@
               size="120"
               max="255"
               name="description"
+              #name="ngModel"
               [ngModel]=document?.description
-              required>
+              >
           </div>
         </div>
   
@@ -41,14 +44,18 @@
               size="150"
               max="255"
               name="url"
-              [ngModel]=document?.URL
+              #name="ngModel"
+              [ngModel]=document?.url
               required>
           </div>
         </div>
-  
+        <div class="alert alert-danger" *ngIf="">
+          “The Document Title and Document URL are required fields.” 
+        </div>
         <div class="row">
           <div class="col-xs-12 btn-toolbar">
-            <button class="btn btn-success" type="submit" >Save</button>
+            <button class="btn btn-success" type="submit" 
+            [disabled]="!f.valid">{{ editMode ? 'Update' : 'Add' }}</button>
             <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
           </div>
         </div>

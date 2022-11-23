@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Params, ActivatedRoute } from '@angular/router';
 import { DocumentService } from '../document.service';
+import { NgForm } from '@angular/forms'
+import { Document } from '../document.model';
 
 @Component({
   selector: 'cms-document-edit',
   templateUrl: './document-edit.component.html',
   styleUrls: ['./document-edit.component.css']
 })
+
 export class DocumentEditComponent implements OnInit {
   originalDocument: Document;
   document: Document;
@@ -18,7 +21,7 @@ export class DocumentEditComponent implements OnInit {
     private route: ActivatedRoute
     ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.route.params
       .subscribe(
         (params: Params) => {
@@ -31,8 +34,18 @@ export class DocumentEditComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     const value = form.value;
-    const newDocument = new Document(value.dname, value.description, value.url);
+    const newDocument = new Document(
+      this.id, 
+      value.dname, 
+      value.description, 
+      value.url,
+      []
+    );
     this.docService.addDocument(newDocument);
+  }
+
+  onCancel() {
+    console.log(this.id);
   }
 
 }

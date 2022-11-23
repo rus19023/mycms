@@ -19,7 +19,9 @@ export class MessageEditComponent implements OnInit {
   @ViewChild('msgText', { static: false }) msgTextInputRef!: ElementRef;
   maxContactId = 4;
 
-  constructor(private msgService: MessageService) {}
+  constructor(
+    private msgService: MessageService
+    ) {}
 
   ngOnInit() {
   }
