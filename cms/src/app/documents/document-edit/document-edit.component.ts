@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Params, ActivatedRoute } from '@angular/router';
+import { Params, Router, ActivatedRoute } from '@angular/router';
 import { DocumentService } from '../document.service';
 import { NgForm } from '@angular/forms'
 import { Document } from '../document.model';
@@ -18,6 +18,7 @@ export class DocumentEditComponent implements OnInit {
 
   constructor(
     private docService: DocumentService,
+    private router: Router,
     private route: ActivatedRoute
     ) { }
 
@@ -28,6 +29,14 @@ export class DocumentEditComponent implements OnInit {
           // '+' converts string into number
           this.id = +params['id'];
           this.editMode = params['id'] != null;
+          // Pull information from document with this.id
+          this.originalDocument = this.docService.getDocumentId(this.id);
+   
+          if (!this.originalDocument) {
+            return
+          }
+          this.editMode = true;
+          this.document = this.docService.getDocumentId(this.id);  
         }
       );
   }

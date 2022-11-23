@@ -30,7 +30,7 @@ export class DocumentDetailComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = +params['id'];
-          this.document = this.docService.getDocument(this.id);
+          this.document = this.docService.getDocumentId(this.id);
           console.log(`this.id: ${this.id}`);
       }
     )

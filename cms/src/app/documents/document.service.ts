@@ -18,7 +18,7 @@ export class DocumentService {
      return this.documents.slice();
    }
 
-   getDocument(index: number) {
+   getDocumentId(index: number) {
     return this.documents[index];
    }
 
@@ -53,7 +53,7 @@ export class DocumentService {
       if (!originalDocument || !newDocument) {
          console.log('No document info received.');
          return;
-      } 
+      }
       let pos = this.documents.indexOf(originalDocument);
       if (pos < 0) {
          console.log('Invalid document info.');

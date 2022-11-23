@@ -149,6 +149,13 @@ body {
     color: white;
 }
 
-input.ng-invalid {
+input.ng-invalid.ng-touched {
     border: 1px solid red;
-  }
+}
+
+.alert-danger {
+    color: red;
+    background: black;
+    border: 1px solid red;
+    font-weight: bolder;
+}
