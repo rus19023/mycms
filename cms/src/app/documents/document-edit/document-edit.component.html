@@ -12,7 +12,7 @@
               size="120"
               max="120"
               name="dname"
-              #name="ngModel"
+              #title="ngModel"
               [ngModel]=document?.dname
               required>
           </div>
@@ -28,7 +28,7 @@
               size="120"
               max="255"
               name="description"
-              #name="ngModel"
+              #description="ngModel"
               [ngModel]=document?.description
               >
           </div>
@@ -44,13 +44,13 @@
               size="150"
               max="255"
               name="url"
-              #name="ngModel"
+              #url="ngModel"
               [ngModel]=document?.url
               required>
           </div>
         </div>
-        <div class="alert alert-danger" *ngIf="">
-          “The Document Title and Document URL are required fields.” 
+        <div class="alert alert-danger" *ngIf="(!url.valid && url.touched) || (!title.valid && title.touched)">
+          The Document Title and Document URL are required fields. 
         </div>
         <div class="row">
           <div class="col-xs-12 btn-toolbar">

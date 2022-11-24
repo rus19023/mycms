@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Params, Router, ActivatedRoute } from '@angular/router';
-import { DocumentService } from '../document.service';
-import { NgForm } from '@angular/forms'
+import { NgForm } from '@angular/forms';
+
 import { Document } from '../document.model';
+import { DocumentService } from '../document.service';
 
 @Component({
   selector: 'cms-document-edit',
@@ -57,7 +58,7 @@ export class DocumentEditComponent implements OnInit {
   }
 
   onCancel() {
-    console.log(this.id);
+    this.router.navigate(['/documents']);
   }
 
 }

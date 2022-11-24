@@ -43,7 +43,7 @@ export class MessageEditComponent implements OnInit {
     this.msgService.addMessage(newMessage);
   }
 
-  onClear():void {
+  onClear() {
     this.subjectInputRef.nativeElement.value = '';
     this.msgTextInputRef.nativeElement.value = '';
   }
