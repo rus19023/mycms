@@ -159,3 +159,11 @@ input.ng-invalid.ng-touched {
     border: 1px solid red;
     font-weight: bolder;
 }
+
+.dragMsg {
+    color: magenta;
+    border: 1px dotted magenta;
+    border-radius: 4px;
+    padding: 3rem;
+    margin: 5rem;
+}

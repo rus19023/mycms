@@ -33,7 +33,7 @@ export class ContactListComponent implements OnInit {
           this.contacts = contactsList;
       }
     );
-    console.log(`this.contacts: ${this.contacts}`);
+    //console.log(`this.contacts: ${this.contacts}`);
   }  
 
   onNewContact() {

@@ -15,7 +15,7 @@ import { ContactService } from '../contact.service';
 export class ContactEditComponent implements OnInit {
   originalContact: Contact;
   contact: Contact;
-  groupContacts: Contact[];
+  groupContacts: Contact[] = [];
   id: number;
   editMode = false;
   simpleDrop: any = null;
@@ -88,12 +88,16 @@ export class ContactEditComponent implements OnInit {
   }
 
   addToGroup($event: any) {
+    console.log('this.groupContacts: ');
+    console.log(JSON.stringify(this.groupContacts));  
     const selectedContact: Contact = $event.dragData;
+      console.log(JSON.stringify(selectedContact));  
     const invalidGroupContact = this.isInvalidContact(selectedContact);
     if (invalidGroupContact){
        return;
     }
     this.groupContacts.push(selectedContact);
+    console.log(JSON.stringify(this.groupContacts)); 
   }
   
   onRemoveItem(index: number) {
@@ -102,6 +106,8 @@ export class ContactEditComponent implements OnInit {
    }
    this.groupContacts.splice(index, 1);
   }
+
+  
  
 
 }

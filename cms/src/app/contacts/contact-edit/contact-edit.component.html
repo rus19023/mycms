@@ -34,7 +34,7 @@
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
           </div>
           <div class="alert alert-danger" *ngIf="(!email.valid && email.touched)">
-            Enter a valid Email address. 
+            Enter a valid Email address 
           </div>
         </div>
   
@@ -52,9 +52,7 @@
               #phone="ngModel" 
               pattern="\D*([2-9]\d{2})(\D*)([2-9]\d{2})(\D*)(\d{4})\D*">            
           </div>
-          <div class="alert alert-danger" *ngIf="(!phone.valid && phone.touched)">
-            Enter a valid Phone number. 
-          </div>
+          <div class="alert alert-danger" *ngIf="(!phone.valid && phone.touched)"> Enter a valid Phone number </div>
         </div>
   
         <div class="row">
@@ -72,29 +70,32 @@
               >
           </div>
         </div>
-        <div class="alert alert-danger" *ngIf="(!cname.valid && cname.touched) || (!email.valid && email.touched)">
-          Contact Name and Email are required fields. 
-        </div>
-  
+        <div class="alert alert-danger" *ngIf="(!cname.valid && cname.touched) || (!email.valid && email.touched)"> Contact Name and Email are required fields </div>  
+
         <div class="row">
           <div class="form-group">
-            <label for="groupList">Group Contacts:</label>
+            <label class="pad-all" for="groupList">Group Contacts:</label>
   
-            <div class="row" id="groupList"
-                style="min-height: 3rem;" dnd-droppable [dropZones]="['contactGroup']" (onDropSuccess)="simpleDrop=$event" >
+            <div 
+                class="row pad-all" 
+                id="groupList"
+                name="groupList"
+                style="min-height: 3rem;" 
+                dnd-droppable
+                [dropZones]="['contactGroup']"
+                (onDropSuccess)="addToGroup($event)">
+                <span class="dragMsg pad-all" *ngIf="groupContacts?.length < 1">Drag contacts in group here</span>
   
               <div *ngFor="let contact of groupContacts; let i = index">
                 <div>
-                  <cms-contact-item class="col-sm-11" [contact]="contact"></cms-contact-item>
-                  <button class="btn btn-danger col-sm-2 deleteButton" (click)="onRemoveItem(i)">X</button>
+                  <cms-contact-item class="col-sm-11 pad-all" [contact]="contact"></cms-contact-item>
+                  <button class="btn btn-danger col-sm-5 deleteButton m-5" (click)="onRemoveItem(i)">Delete Group Contact</button>
                 </div>
               </div>
-              <span class="dragMsg" *ngIf="groupContacts?.length < 1">Drag contacts in group here</span>
             </div>
   
           </div>
-        </div>
-  
+        </div>  
   
         <div class="row">
           <div class="col-xs-12 btn-toolbar">
