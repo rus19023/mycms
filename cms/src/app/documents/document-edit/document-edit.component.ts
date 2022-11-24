@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Params, ActivatedRoute } from '@angular/router';
+import { Params, Router, ActivatedRoute } from '@angular/router';
 import { DocumentService } from '../document.service';
 import { NgForm } from '@angular/forms'
 import { Document } from '../document.model';
@@ -18,6 +18,7 @@ export class DocumentEditComponent implements OnInit {
 
   constructor(
     private docService: DocumentService,
+    private router: Router,
     private route: ActivatedRoute
     ) { }
 
@@ -28,6 +29,12 @@ export class DocumentEditComponent implements OnInit {
           // '+' converts string into number
           this.id = +params['id'];
           this.editMode = params['id'] != null;
+          this.originalDocument = this.docService.getDocument(this.id);
+          if (!this.originalDocument) {
+            return;
+          }
+          this.editMode = true;
+          this.document = this.originalDocument;
         }
       );
   }
@@ -41,7 +48,12 @@ export class DocumentEditComponent implements OnInit {
       value.url,
       []
     );
-    this.docService.addDocument(newDocument);
+    if (this.editMode) {      
+      this.docService.updateDocument(this.originalDocument, newDocument);
+    } else {
+      this.id = this.docService.maxDocumentId;
+      this.docService.addDocument(newDocument);
+    }
   }
 
   onCancel() {

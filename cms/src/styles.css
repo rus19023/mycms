@@ -149,6 +149,6 @@ body {
     color: white;
 }
 
-input.ng-invalid {
+input.ng-invalid.ng-touched {
     border: 1px solid red;
-  }
+}
