@@ -36,6 +36,8 @@ export class ContactEditComponent implements OnInit {
           }
           this.editMode = true;
           this.contact = this.originalContact;
+          console.log(this.contact.id);
+          console.log(this.originalContact.id);
           //this.initForm();
         }
       );
@@ -54,6 +56,7 @@ export class ContactEditComponent implements OnInit {
     if (this.editMode) {
       this.contactService.updateContact(this.originalContact, newContact);
     } else {
+      this.id = this.contactService.maxContactId;
       this.contactService.addContact(newContact);
     }
     this.onCancel();

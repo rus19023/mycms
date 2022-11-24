@@ -19,17 +19,18 @@ export class ContactService {
 
   constructor(private msgService: MessageService) { 
     this.contacts = MOCKCONTACTS;
+    this.maxContactId = this.getMaxId();
   } 
 
-  getContact(id: number): Contact {
-    for(const contact of this.contacts) {
-      if(contact.id === id) {
-        console.log(`contact.id inside getContact in ContactService: ${contact.id}`)
-        return contact;
-      }
-    }
-    return null;
-  }  
+//   getContact(id: number): Contact {
+//     for(const contact of this.contacts) {
+//       if(contact.id === id) {
+//         console.log(`contact.id inside getContact in ContactService: ${contact.id}`)
+//         return contact;
+//       }
+//     }
+//     return null;
+//   }  
 
   getMaxId(): number {
     let maxId = 0;
@@ -44,7 +45,7 @@ export class ContactService {
     return maxId;
  }
 
-  getContactByID(index: number) {
+  getContact(index: number) {
     return this.contacts[index];
   }
 
