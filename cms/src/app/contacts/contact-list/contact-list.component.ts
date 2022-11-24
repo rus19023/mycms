@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { DndModule } from 'ng2-dnd';
 
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
@@ -14,7 +15,8 @@ import { ContactService } from '../contact.service';
 export class ContactListComponent implements OnInit {
   contacts: Contact[];
   index: number;
-  subscription: Subscription; 
+  subscription: Subscription;
+  simpleDrop: any = null;
 
   constructor(
     private contactService: ContactService,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Params, ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { DndModule } from 'ng2-dnd';
 
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
@@ -17,6 +18,7 @@ export class ContactEditComponent implements OnInit {
   groupContacts: Contact[];
   id: number;
   editMode = false;
+  simpleDrop: any = null;
 
   constructor(
     private contactService: ContactService,
@@ -41,7 +43,7 @@ export class ContactEditComponent implements OnInit {
           console.log(this.originalContact.id);
           // Check for entries in group, if so, clone it
           if (this.contact.group) {
-            groupContacts = clone the contact’s group
+            //groupContacts = clone the contact’s group
           }
         }
       );
