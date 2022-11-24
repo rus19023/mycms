@@ -10,9 +10,13 @@ body {
     background: transparent;
 }
 
+.navbar-brand:hover {
+    color: chartreuse;
+}
+
 .nav, .navbar, .navbar-brand {
     background: #292929;
-    color: chartreuse; 
+    color: white; 
 }
 
 .messageHeader, .messageText {
@@ -35,6 +39,10 @@ body {
     color: chartreuse !important;
     border: 1px solid white;
     border-radius: 4px 0 0 4px;
+}
+
+.panel-default {
+    width: 100%;
 }
 
 .panel-footer {
