@@ -76,12 +76,12 @@
           Contact Name and Email are required fields. 
         </div>
   
-        <!-- <div class="row">
+        <div class="row">
           <div class="form-group">
             <label for="groupList">Group Contacts:</label>
   
             <div class="row" id="groupList"
-                style="min-height: 3rem;" >
+                style="min-height: 3rem;" dnd-droppable [dropZones]="['contactGroup']" (onDropSuccess)="simpleDrop=$event" >
   
               <div *ngFor="let contact of groupContacts; let i = index">
                 <div>
@@ -93,7 +93,7 @@
             </div>
   
           </div>
-        </div> -->
+        </div>
   
   
         <div class="row">

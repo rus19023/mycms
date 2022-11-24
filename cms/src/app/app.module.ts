@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { DndModule } from 'ng2-dnd';
 
 import { AppComponent } from './app.component';
 
@@ -10,7 +11,6 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
 import { ContactDetailComponent } from './contacts/contact-detail/contact-detail.component';
 import { ContactItemComponent } from './contacts/contact-item/contact-item.component';
-import { ContactNewComponent } from './contacts/contact-new/contact-new.component';
 
 // Documents
 import { DocumentListComponent } from './documents/document-list/document-list.component';
@@ -54,12 +54,14 @@ import { ContactEditComponent } from './contacts/contact-edit/contact-edit.compo
     MessageItemComponent,
     MessageEditComponent,
     FooterComponent,
-    DropdownDirective
+    DropdownDirective,
+
   ],
   imports: [
     BrowserModule,
     FormsModule, 
-    AppRoutingModule
+    AppRoutingModule,
+    DndModule.forRoot()
   ],
   providers: [ContactService, MessageService, DocumentService],
   bootstrap: [AppComponent],

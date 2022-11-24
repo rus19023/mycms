@@ -14,6 +14,7 @@ import { ContactService } from '../contact.service';
 export class ContactEditComponent implements OnInit {
   originalContact: Contact;
   contact: Contact;
+  groupContacts: Contact[];
   id: number;
   editMode = false;
 
@@ -38,7 +39,10 @@ export class ContactEditComponent implements OnInit {
           this.contact = this.originalContact;
           console.log(this.contact.id);
           console.log(this.originalContact.id);
-          //this.initForm();
+          // Check for entries in group, if so, clone it
+          if (this.contact.group) {
+            groupContacts = clone the contact’s group
+          }
         }
       );
   }
@@ -65,42 +69,37 @@ export class ContactEditComponent implements OnInit {
   onCancel() {
     this.router.navigate(['../'], {relativeTo: this.route});
   }
-  
-  onRemoveItem(id: number) {
-    console.log(id);
+
+  isInvalidContact(newContact: Contact) {
+    if (!newContact) {// newContact has no value
+      return true;
+    }
+    if (this.contact && newContact.id === this.contact.id) {
+       return true;
+    }
+    for (let i = 0; i < this.groupContacts.length; i++){
+       if (newContact.id === this.groupContacts[i].id) {
+         return true;
+      }
+    }
+    return false;
+  }
+
+  addToGroup($event: any) {
+    const selectedContact: Contact = $event.dragData;
+    const invalidGroupContact = this.isInvalidContact(selectedContact);
+    if (invalidGroupContact){
+       return;
+    }
+    this.groupContacts.push(selectedContact);
   }
   
-  // private initForm() {
-  //   let contactName = '';
-  //   let contactImageUrl = '';
-  //   let contactEmail = '';
-  //   let contactPhone = '';
-  //   let groupContacts = new FormArray([]);
-
-  //   if (this.editMode) {
-  //     const contact = this.contactService.getContact(this.id);
-  //     contactName = contact.cname;
-  //     contactEmail = contact.email;
-  //     contactPhone = contact.phone;
-  //     contactImageUrl = contact.imageUrl;
-  //     if (contact['group']) {
-  //       for (let item of contact.group) {
-  //         groupContacts.push(
-  //           new FormGroup({
-  //             'name': new FormControl(contact.id, Validators.required)
-  //           })
-  //         );
-  //       }
-  //     }
-  //   }
-
-    // this.contactForm = new FormGroup({
-    //   'name': new FormControl(contactName, Validators.required),
-    //   'contactImageUrl': new FormControl(contactImageUrl, Validators.required),
-    //   'email': new FormControl(contactEmail, Validators.required),
-    //   'phone': new FormControl(contactPhone, Validators.required),
-    //   'groupContacts': groupContacts
-    // });
-  // }
+  onRemoveItem(index: number) {
+    if (index < 0 || index >= this.groupContacts.length) {
+      return;
+   }
+   this.groupContacts.splice(index, 1);
+  }
+ 
 
 }
