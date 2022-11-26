@@ -175,3 +175,7 @@ input.ng-invalid.ng-touched {
     padding: 3rem;
     margin: 5rem;
 }
+
+.input-group-addon {
+    cursor: pointer;
+}

@@ -5,21 +5,29 @@
                 <div class="col-md-6">
                     <h3 class="p-2">Contacts</h3>
                 </div>
-                <div class="col-xl-6">
-                    <a [routerLink]="['new']" class="btn btn-success pull-right">New contact</a>
+                <div class="row pad-all">
+                    <div class="input-group pull-left col-xs-7">
+                        <input #searchBox (keyup)="search(searchBox.value)" class="form-control" placeholder="Enter a search value"> 
+                        <div class="glyphicon glyphicon-search input-group-addon"   (click)="search(searchBox.value)">
+                        </div>
+                    </div>
+                    <div class="pull-right">                
+                       <div class="col-xl-6">
+                           <a [routerLink]="['new']" class="btn btn-success pull-right">New contact</a>
+                       </div>
+                   </div>
                 </div>
             </div>
         </div>
         <div class="panel-body m-4">
             <cms-contact-item 
-                *ngFor="let contactEl of contacts;  let i = index"
+                *ngFor="let i = index; let contactEl of contacts | contactsFilter:term" 
                 [contact]="contactEl"
                 [index]="i"
                 dnd-draggable 
                 [dragEnabled]="true"
                 [dragData]="contactEl"
-                [dropZones]="['contactGroup']"
-                >
+                [dropZones]="['contactGroup']">
             </cms-contact-item>
         </div>
     </div>

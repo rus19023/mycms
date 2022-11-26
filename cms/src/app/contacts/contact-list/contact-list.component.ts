@@ -17,6 +17,7 @@ export class ContactListComponent implements OnInit {
   index: number;
   subscription: Subscription;
   simpleDrop: any = null;
+  term: string;
 
   constructor(
     private contactService: ContactService,
@@ -43,5 +44,11 @@ export class ContactListComponent implements OnInit {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   } 
+
+  search(value: string) {
+    this.term = value;
+  }
+    
+  // https://bonniesites-solutions-cms-default-rtdb.firebaseio.com/
 
 }

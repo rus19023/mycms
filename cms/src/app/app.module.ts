@@ -35,6 +35,7 @@ import { MessageService } from './messages/message.service';
 import { ContactService } from './contacts/contact.service';
 import { DocumentService } from './documents/document.service';
 import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
+import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { ContactEditComponent } from './contacts/contact-edit/contact-edit.compo
     MessageEditComponent,
     FooterComponent,
     DropdownDirective,
+    ContactsFilterPipe
 
   ],
   imports: [

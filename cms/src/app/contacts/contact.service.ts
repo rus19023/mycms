@@ -41,7 +41,7 @@ export class ContactService {
           maxId = currentId;
         }
      });  
-     console.log(`maxId: ${maxId}`);
+     //console.log(`maxId: ${maxId}`);
      return maxId;
  }
 
