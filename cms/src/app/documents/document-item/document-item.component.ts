@@ -13,7 +13,7 @@ export class DocumentItemComponent implements OnInit {
   @Input() index: number;
 
   constructor(private docService: DocumentService) {
-    // console.log(this.document);
+    console.log(this.document);
     //this.docService.documentListChangedEvent.next(this.document);
    }
 

@@ -12,7 +12,7 @@ import { DocumentService } from '../document.service';
 })
 
 export class DocumentListComponent implements OnInit {
-  documents: Document[];
+  documents: Document[] = [];
   index: number;
   subscription: Subscription;
   maxDocumentId: number;   
@@ -24,11 +24,17 @@ export class DocumentListComponent implements OnInit {
     ) {}
 
   ngOnInit() {
-    this.documents = this.docService.getDocuments();
-    this.subscription = this.docService.documentListChangedEvent  
+    this.subscription = this.docService.fetchDocuments();
+    //console.log(`this.documents, docService, onInit: ${this.documents}`);
+    //this.docService.fetchDocuments();
+    //this.documents = this.docService.documentList;
+    //console.log(`this.documents, docService, onInit: ${this.documents}`);
+    //console.log(this.documents);
+    this.docService.documentListChangedEvent  
       .subscribe(
       (documentsList: Document[]) => {
           this.documents = documentsList;
+          //console.log(`this.documents, docService, onInit: ${this.documents}`);
       }
     );
     //console.log(`this.documents: ${this.documents}`);

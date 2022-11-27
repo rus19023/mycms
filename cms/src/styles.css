@@ -10,13 +10,13 @@ body {
     background: transparent;
 }
 
-.navbar-brand:hover {
-    color: chartreuse;
-}
-
 .nav, .navbar, .navbar-brand {
     background: #292929;
     color: white; 
+}
+
+.navbar-brand:hover {
+    color: chartreuse;
 }
 
 .messageHeader, .messageText {

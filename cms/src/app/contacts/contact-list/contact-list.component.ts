@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { DndModule } from 'ng2-dnd';
 
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
@@ -46,9 +45,7 @@ export class ContactListComponent implements OnInit {
   } 
 
   search(value: string) {
-    this.term = value;
+    this.term = value.trim();
   }
-    
-  // https://bonniesites-solutions-cms-default-rtdb.firebaseio.com/
 
 }
