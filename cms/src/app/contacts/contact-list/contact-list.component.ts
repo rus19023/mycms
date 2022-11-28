@@ -11,7 +11,7 @@ import { ContactService } from '../contact.service';
   styleUrls: ['./contact-list.component.css']
 })
 
-export class ContactListComponent implements OnInit {
+export class ContactListComponent implements OnInit, OnDestroy {
   contacts: Contact[];
   index: number;
   subscription: Subscription;

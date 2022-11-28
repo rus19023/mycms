@@ -1,6 +1,6 @@
 body {
-    max-width: 100%;
-    min-height: 100rem;
+    max-width: 95%;
+    min-height: 100vh;
     background: grey;
     color: white;
 }

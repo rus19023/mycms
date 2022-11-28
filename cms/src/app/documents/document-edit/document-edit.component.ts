@@ -48,13 +48,18 @@ export class DocumentEditComponent implements OnInit {
       value.dname, 
       value.description, 
       value.url,
-      []
+      value.children || []
     );
     if (this.editMode) {      
       this.docService.updateDocument(this.originalDocument, newDocument);
+      alert('Document updated!');
+      this.router.navigate(['/documents']);
+
     } else {
       this.id = this.docService.maxDocumentId;
       this.docService.addDocument(newDocument);
+      alert('Document added!');
+      this.router.navigate(['/documents']);
     }
   }
 

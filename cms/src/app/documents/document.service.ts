@@ -6,15 +6,15 @@ import { Document } from './document.model';
 
 const httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      Authorization: 'my-auth-token'
+      'Content-Type':  'application/json'
+      //, Authorization: 'my-auth-token'
     })
 };
 
 @Injectable({ providedIn: 'root' })
 
 export class DocumentService implements OnInit, OnDestroy {
-    documentList: Document[] = [];
+    private documentList: Document[] = [];
     documentSelected = new Subject<Document>();
     documentListChangedEvent = new Subject<Document[]>();
     maxDocumentId: number;    
@@ -26,49 +26,50 @@ export class DocumentService implements OnInit, OnDestroy {
     ) {}
 
     ngOnInit(
-
     ) {}
 
     fetchDocuments() {
         return this.http
-            .get<Document[]>(this.configUrl)     
-            .subscribe(
-                // success method
-                (documents: Document[] ) =>  { 
-                    console.log(`: ${documents}`);               
-                    this.documentList = documents;
-                    this.maxDocumentId = this.getMaxId();
-                    //sort the list of documents
-                    this.documentList.sort((a, b) => {
-                        if (a > b) {
-                        return 1;
-                        } else { 
-                        return -1;
-                        }
-                    });
-                    //console.log(`this.documentList: ${this.documentList}`);
-                    //emit the next document list change event
-                    let documentsListClone = this.documentList.slice();  
-                    this.documentListChangedEvent.next(documentsListClone);
-                },  
-                // error method
-                (error: any) => {
-                //print the error to the console
-                console.log(error)
-                }
-            )}  
+        .get<Document[]>(this.configUrl)     
+        .subscribe(
+            // success method
+            (documents: Document[] ) =>  { 
+                console.log(`documents, inside subscribe, docService, fetchDocuments, success: ${documents}`);               
+                this.documentList = documents;
+                console.log(`this.documentList, inside subscribe, docService, fetchDocuments, success: ${this.documentList}`);   
+                this.maxDocumentId = this.getMaxId();
+                //sort the list of documents
+                this.documentList.sort((a, b) => {
+                    if (a > b) {
+                    return 1;
+                    } else { 
+                    return -1;
+                    }
+                });
+                //console.log(`this.documentList: ${this.documentList}`);
+                //emit the next document list change event
+                let documentsListClone = this.documentList.slice(); 
+                //console.log(`documentsListClone, inside subscribe, docService, fetchDocuments, success: ${documentsListClone}`);    
+                this.documentListChangedEvent.next(documentsListClone);
+            },  
+            // error method
+            (error: any) => {
+            //print the error to the console
+            console.log(error)
+            }
+        )}  
 
     storeDocuments() {       
-         const documents = this.fetchDocuments();
-         this.http
-           .put(
-               this.configUrl
-               , documents
-               , httpOptions
-           )
-           .subscribe(response => {
-             console.log(response);
-           });       
+        const documents = JSON.stringify(this.documentList);
+        this.http
+        .put(
+            this.configUrl
+            , documents
+            , httpOptions
+        )
+        .subscribe(response => {
+            console.log(response);
+        });       
     }
 
     getDocument(index: number) {
@@ -79,12 +80,11 @@ export class DocumentService implements OnInit, OnDestroy {
         let maxId = 0;
         this.documentList.forEach(element => {
             let currentId = element.id;
-            //console.log(`element.id: ${element.id}`)
+            console.log(`element.id: ${element.id}`)
             if (currentId > maxId) {
                 maxId = currentId;
             }
-         });  
-         //console.log(`maxId: ${maxId}`);
+         });
          return maxId;
     }
 
@@ -96,31 +96,29 @@ export class DocumentService implements OnInit, OnDestroy {
             this.maxDocumentId++;
             newDocument.id = this.maxDocumentId;  
             this.documentList.push(newDocument);
-            let documentsListClone = this.documentList.slice()
-            this.documentListChangedEvent.next(documentsListClone);
+            this.storeDocuments();
         }
     }
 
     updateDocument(originalDocument: Document, newDocument: Document) { 
         // Check for missing document information
         if (!originalDocument || !newDocument) {
-            console.log('No document info received.');
+            console.log('No document update info received.');
            return;
         }   
         let pos = this.documentList.indexOf(originalDocument);
         if (pos < 0) {
-            console.log('Invalid document info.');
+            console.log('Invalid update document info.');
             return;
         }      
         newDocument.id = originalDocument.id;
         this.documentList[pos] = newDocument;
-        let documentsListClone = this.documentList.slice();
-        this.documentListChangedEvent.next(documentsListClone);
+        this.storeDocuments();
     }
 
     deleteDocument(document: Document) {
         if (!document) {
-            console.log('No document info received.');
+            console.log('No document delete info received.');
             return;
         }
         const pos = this.documentList.indexOf(document);
@@ -129,8 +127,7 @@ export class DocumentService implements OnInit, OnDestroy {
             return;
         } 
         this.documentList.splice(pos, 1);
-        let documentsListClone = this.documentList.slice();
-        this.documentListChangedEvent.next(documentsListClone);
+        this.storeDocuments();
     }
 
     ngOnDestroy() {

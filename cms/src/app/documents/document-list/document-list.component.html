@@ -1,21 +1,17 @@
-
-    <div class="panel panel-default">
-        <div class="panel-heading pad-all">
-            <div class="row pad-left-right">
-                <span class="pull-left title">Documents</span>
-                <a (click)="onNewDocument()" style="cursor: pointer" class="btn btn-success pull-right">Add Document</a>
-            </div>
+<div class="panel panel-default">
+    <div class="panel-heading pad-all">
+        <div class="row pad-left-right">
+            <span class="pull-left title">Documents</span>
+            <a (click)="onNewDocument()" style="cursor: pointer" class="btn btn-success pull-right">Add Document</a>
         </div>
-        <div class="panel-body container-fluid">
-            <div class="center-panel ">
-                <cms-document-item 
-                    *ngFor="let documentEl of documents; let i = index"
-                    [document]="documentEl"
-                    [index]="i">
-                </cms-document-item>  
-            </div>
-        </div>    
     </div>
-
-
-    
+    <div class="panel-body container-fluid">
+        <div class="center-panel ">
+            <cms-document-item 
+                *ngFor="let documentEl of documents; let i = index"
+                [document]="documentEl"
+                [index]="i">
+            </cms-document-item>  
+        </div>
+    </div>    
+</div>    
