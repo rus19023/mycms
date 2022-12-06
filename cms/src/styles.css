@@ -179,3 +179,15 @@ input.ng-invalid.ng-touched {
 .input-group-addon {
     cursor: pointer;
 }
+
+.slide-to-side {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 767.98px) {
+
+    .slide-to-side {
+        grid-template-columns: 1fr 1fr !important;
+    }
+}

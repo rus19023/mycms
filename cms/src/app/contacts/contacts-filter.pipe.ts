@@ -16,7 +16,7 @@ export class ContactsFilterPipe implements PipeTransform {
             );
         }
         if (filteredContacts.length < 1) {
-            alert('No contacts found');
+            //alert('No contacts found');
             return contacts;
         }
         return filteredContacts;

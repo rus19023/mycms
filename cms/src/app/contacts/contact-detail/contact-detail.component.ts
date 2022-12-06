@@ -12,7 +12,7 @@ import { ContactService } from '../contact.service';
 
 export class ContactDetailComponent implements OnInit {
   contact: Contact;
-  id: number;
+  index: number;
   
 
   constructor(
@@ -25,8 +25,14 @@ export class ContactDetailComponent implements OnInit {
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.id = params['id'];
-          this.contact = this.contactService.getContact(this.id);
+          this.index = params['id'];
+          this.contact = this.contactService.getContact(this.index);
+          console.log(`this.params['id']->this.index: ${this.index}`);
+          console.log(`this.contact.id: ${this.contact.id}`);
+          console.log(`this.contact.cname: ${this.contact.cname}`);
+          console.log(`this.contact.email: ${this.contact.email}`);
+          console.log(`this.contact.phone: ${this.contact.phone}`);
+          console.log(`this.contact.group: ${this.contact.group}`);
         }
       )
   }

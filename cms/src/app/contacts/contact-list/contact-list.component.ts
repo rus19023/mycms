@@ -12,9 +12,9 @@ import { ContactService } from '../contact.service';
 })
 
 export class ContactListComponent implements OnInit, OnDestroy {
-  contacts: Contact[];
-  index: number;
-  subscription: Subscription;
+  contacts: Contact[] = [];
+  fetchContacts: Subscription;
+  maxContactId: number;   
   simpleDrop: any = null;
   term: string;
 
@@ -25,15 +25,14 @@ export class ContactListComponent implements OnInit, OnDestroy {
     ) {}
 
   ngOnInit() {
-    // Load the stored contacts
-    this.contacts = this.contactService.getContacts();
-    this.subscription = this.contactService.contactListChangedEvent  
+    // Load contacts from firebase
+    this.fetchContacts = this.contactService.fetchContacts();
+    this.contactService.contactListChangedEvent  
       .subscribe(
       (contactsList: Contact[]) => {
-          this.contacts = contactsList;
+        this.contacts = contactsList;
       }
     );
-    //console.log(`this.contacts: ${this.contacts}`);
   }  
 
   onNewContact() {
@@ -41,7 +40,7 @@ export class ContactListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.fetchContacts.unsubscribe();
   } 
 
   search(value: string) {

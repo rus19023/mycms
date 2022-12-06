@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy} from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -13,7 +13,6 @@ import { DocumentService } from '../document.service';
 
 export class DocumentListComponent implements OnInit, OnDestroy {
   documents: Document[] = [];
-  //index: number;
   fetchDocs: Subscription;
   maxDocumentId: number;   
 
@@ -24,17 +23,14 @@ export class DocumentListComponent implements OnInit, OnDestroy {
     ) {}
 
   ngOnInit() {
+    // Load documents from firebase
     this.fetchDocs = this.docService.fetchDocuments();
-    //this.getIndex = this.docService.getDocument();
-    console.log(`this.documents, docService, onInit: ${this.documents}`);
     this.docService.documentListChangedEvent  
       .subscribe(
       (documentsList: Document[]) => {
-        this.documents = documentsList;   
-        //console.log(`this.documents, docService, onInit: ${this.documents}`);
+        this.documents = documentsList;
       }
     );
-    //console.log(`this.documents: ${this.documents}`);
   }
 
   onNewDocument() {

@@ -1,6 +1,6 @@
-import { Injectable, OnInit, OnDestroy } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Subject, Subscription, Observable, throwError } from 'rxjs';
+import { Subject } from 'rxjs';
 
 import { Contact } from './contact.model';
 import { MessageService } from '../messages/message.service';
@@ -15,74 +15,67 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 
 export class ContactService {
-    contactSelectedEvent = new Subject<Contact>();
+    private contactList: Contact[] = [];
+    contactSelected = new Subject<Contact>();
     contactListChangedEvent = new Subject<Contact[]>();
-    //contact: Contact;
-    private contactList: Contact[];
-    maxContactId: number;   
-    subscription: Subscription;
-    configUrl: string = 'https://bonniesites-solutions-cms-default-rtdb.firebaseio.com/dcontacts.json';
+    maxContactId: number; 
+    configUrl: string = 'https://bonniesites-solutions-cms-default-rtdb.firebaseio.com/contacts.json';
 
     constructor(
         private msgService: MessageService,
         private http: HttpClient
-        ) 
-        {         
-            this.maxContactId = this.getMaxId();
-        } 
+    ) {} 
 
+    fetchContacts() {
+        return this.http
+        .get<Contact[]>(this.configUrl)     
+        .subscribe(
+            // success method
+            (contacts: Contact[] ) =>  { 
+                //console.log(`contacts, inside subscribe, docService, fetchContacts, success: ${contacts}`);               
+                this.contactList = contacts;
+                //console.log(`this.contactList, inside subscribe, contactService, fetchContacts, success: ${this.contactList}`);   
+                this.maxContactId = this.getMaxId();
+                //sort the list of contacts
+                this.contactList.sort((a, b) => {
+                    if (a.cname > b.cname) {
+                    return 1;
+                    } else { 
+                    return -1;
+                    }
+                });
+                //console.log(`this.contactList: ${this.contactList}`);
+                // Create a copy of the contact list
+                let contactsListClone = this.contactList.slice(); 
+                //console.log(`contactsListClone, inside subscribe, docService, fetchcontacts, success: ${contactsListClone}`);
+                // Send the contact list copy to the next listener   
+                this.contactListChangedEvent.next(contactsListClone);
+            },  
+            // error method
+            (error: any) => {
+            //print the error to the console
+            console.log(`Error: ${error.message}`);
+            }
+        )}  
 
-
-        fetchContacts() {
-            return this.http
-            .get<Contact[]>(this.configUrl)     
-            .subscribe(
-                // success method
-                (contacts: Contact[] ) =>  { 
-                    console.log(`contacts, inside subscribe, docService, fetchContacts, success: ${contacts}`);               
-                    this.contactList = contacts;
-                    console.log(`this.dcontactList, inside subscribe, docService, fetchDcontacts, success: ${this.contactList}`);   
-                    this.maxContactId = this.getMaxId();
-                    //sort the list of dcontacts
-                    this.contactList.sort((a, b) => {
-                        if (a > b) {
-                        return 1;
-                        } else { 
-                        return -1;
-                        }
-                    });
-                    //console.log(`this.dcontactList: ${this.dcontactList}`);
-                    //emit the next dcontact list change event
-                    let contactsListClone = this.contactList.slice(); 
-                    //console.log(`dcontactsListClone, inside subscribe, docService, fetchDcontacts, success: ${contactsListClone}`);    
-                    this.contactListChangedEvent.next(contactsListClone);
-                },  
-                // error method
-                (error: any) => {
-                //print the error to the console
-                console.log(error)
-                }
-            )}  
-    
-        storeContacts() {       
-            const dcontacts = this.contactList;
-            this.http
-            .put(
-                this.configUrl
-                , dcontacts
-                , httpOptions
-            )
-            .subscribe(response => {
-                console.log(response);
-            });       
-        }
-    
+    storeContacts() {       
+        const contacts = JSON.stringify(this.contactList);
+        this.http
+        .put(
+            this.configUrl
+            , contacts
+            , httpOptions
+        )
+        .subscribe(response => {
+            console.log(`response: ${response}`);
+        });       
+    }    
 
     getMaxId(): number {
         let maxId = 0;
         this.contactList.forEach(element => {
            let currentId = element.id;
-           //console.log(`element.id: ${element.id}`)
+           // console.log(`in getMaxId(), element.id: ${element.id}`);
            if (currentId > maxId) {
               maxId = currentId;
            }
@@ -91,42 +84,66 @@ export class ContactService {
     }
 
     getContact(index: number) {
+        console.log(`in contact.service, getContact line 87, \nindex: ${index}`);
+
+        console.log(`in contact.service, getContact line 88, \nthis.contactList[index].cname: ${this.contactList[index].cname}`);
+
+        console.log(this.contactList[index]);
+
         return this.contactList[index];
     }
 
-    getContacts() {
-        return this.contactList.slice();
-    } 
-
     addContact(newContact: Contact) {
         if (!newContact) {
-            console.log('No dcontact info received.');
+            alert('No contact info received.');
             return;
         } else {
             this.maxContactId++;
-            newContact.id = this.maxContactId;  
+            newContact.id = this.maxContactId;
+            // Save the new contact into the contact list  
             this.contactList.push(newContact);
-            let contactsListClone = this.contactList.slice()
-            this.contactListChangedEvent.next(contactsListClone);
+            alert('Contact added!');
+            this.storeContacts();
         }
     }
 
-    updateContact(originalContact: Contact, newContact: Contact) { 
-        console.log('inside updateContact, line 70');
-        // Check for missing dcontact information
+    updateContact(originalContact: Contact, newContact: Contact) {
+        console.log(`inside updateContact, line 107, \nnewContact.id: ${newContact.id}, \n newContact.id: ${newContact.id}`);
+        
+        // Check for missing contact information
         if (!originalContact || !newContact) {
-            console.log('No contact info received.');
+            alert('Contact info missing.');
             return;
-        } 
+        }
+
+        console.log(`contact.service, updateContact line 112, \nthis.contactList.indexOf(originalContact) \n${this.contactList.indexOf(originalContact)}`);
+
+        this.contactList.forEach(element => {
+            console.log(`contact.service, updateContact line 117, \n element.id ${element.id}, \n element.cname ${element.cname}, \n element.group ${element.group}`)
+        });
+
+        console.log(`contact.service, updateContact line 120, \n originalContact.id ${originalContact.id}, \n originalContact.cname ${originalContact.cname}, \n originalContact.group ${originalContact.group}`);
+        
+        // Get index of the original contact to replace it with the updated object
         let pos = this.contactList.indexOf(originalContact);
+
+        // Console log originalContact info
+        console.log(`contact.service, updateContact line 113, \n newContact.id ${newContact.id}, \n originalContact.id ${originalContact.id}`);
+
+        console.log(`contact.service, updateContact line 114, pos: ${pos}`);
+        
+        console.log(`Contact.service, inside updateContact, line 114, \n newContact.id ${newContact.id},\n originalContact = ${originalContact.id}, \n${originalContact.cname}, ${originalContact.imageUrl}, \n${originalContact.phone}, \n${originalContact.email}, \n${originalContact.group}`);
+
         if (pos < 0) {
-            console.log('Invalid contact info.');
+            alert('Invalid update info.');
             return;
-        }      
-        newContact.id = originalContact.id;
-        this.contactList[pos] = newContact;
-        let contactsListClone = this.contactList.slice();
-        this.contactListChangedEvent.next(contactsListClone);
+        } else {    
+            newContact.id = originalContact.id;
+            console.log(`contact.service, updateContact, line 119, \n newContact.id ${newContact.id},\n originalContact.id = ${originalContact.id}`);
+            this.contactList[pos] = newContact;
+            alert('Contact updated!');
+            this.storeContacts();
+        } 
     }
 
     deleteContact(contact: Contact) {
@@ -138,7 +155,7 @@ export class ContactService {
             return;
         }
         this.contactList.splice(pos, 1);
-        this.contactListChangedEvent.next(this.contactList.slice());
+        this.storeContacts();
     }
 
 }

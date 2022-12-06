@@ -13,7 +13,7 @@ import { DocumentService } from '../document.service';
 
 export class DocumentDetailComponent implements OnInit {
   document!: Document;
-  id: number;
+  index: number;
   nativeWindow: any;
 
   constructor(
@@ -29,9 +29,10 @@ export class DocumentDetailComponent implements OnInit {
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.id = +params['id'];
-          this.document = this.docService.getDocument(this.id);
-          console.log(`this.id: ${this.id}`);
+          this.index = +params['id'];
+          this.document = this.docService.getDocument(this.index);
+          
+          console.log(`this.id: ${this.index}`);
           console.log(`this.document.id: ${this.document.id}`);
           console.log(`this.document.dname: ${this.document.dname}`);
           console.log(`this.document.description: ${this.document.description}`);
@@ -43,7 +44,7 @@ export class DocumentDetailComponent implements OnInit {
 
   onView() {
     if (this.document.url) {
-      console.log(`this.document.url: ${this.document.url}`);
+      // Open new tab/window using the document URL
       this.nativeWindow.open(this.document.url);
     }
   }  
