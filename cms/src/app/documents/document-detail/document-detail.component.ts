@@ -31,8 +31,8 @@ export class DocumentDetailComponent implements OnInit {
         (params: Params) => {
           this.index = +params['id'];
           this.document = this.docService.getDocument(this.index);
-          
-          console.log(`this.id: ${this.index}`);
+
+          console.log(`this.index: ${this.index}`);
           console.log(`this.document.id: ${this.document.id}`);
           console.log(`this.document.dname: ${this.document.dname}`);
           console.log(`this.document.description: ${this.document.description}`);

@@ -34,8 +34,7 @@ export class DocumentItemComponent implements OnInit, OnDestroy {
     // console.log(this.document.children);    
   }
 
-  ngOnDestroy() { 
-    this.subscription.unsubscribe();   
+  ngOnDestroy() {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
   }
 
 }

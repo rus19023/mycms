@@ -84,11 +84,11 @@ export class ContactService {
     }
 
     getContact(index: number) {
-        console.log(`in contact.service, getContact line 87, \nindex: ${index}`);
+        // console.log(`in contact.service, getContact line 87, \nindex: ${index}`);
 
         console.log(`in contact.service, getContact line 88, \nthis.contactList[index].cname: ${this.contactList[index].cname}`);
 
-        console.log(this.contactList[index]);
+        // console.log(`in contact.service, getContact line 91, \nthis.contactList[index].id: ${this.contactList[index].id}`);
 
         return this.contactList[index];
     }
@@ -108,7 +108,18 @@ export class ContactService {
     }
 
     updateContact(originalContact: Contact, newContact: Contact) {
-        console.log(`inside updateContact, line 107, \nnewContact.id: ${newContact.id}, \n newContact.id: ${newContact.id}`);
+
+        console.log(`&&&&&&&& inside updateContact, line 112, 
+        \n originalContact.cname: ${originalContact.cname}, 
+        \n originalContact.email: ${originalContact.email},  
+        \n originalContact.phone: ${originalContact.phone}, 
+        \n originalContact.id: ${originalContact.id}`); 
+        
+        console.log(`&&&&&&&& inside updateContact, line 118, 
+        \n newContact.cname: ${newContact.cname}, 
+        \n newContact.email: ${newContact.email},  
+        \n newContact.phone: ${newContact.phone}, 
+        \n newContact.id: ${newContact.id}`);
         
         // Check for missing contact information
         if (!originalContact || !newContact) {
@@ -116,23 +127,23 @@ export class ContactService {
             return;
         }
 
-        console.log(`contact.service, updateContact line 112, \nthis.contactList.indexOf(originalContact) \n${this.contactList.indexOf(originalContact)}`);
+        console.log(`contact.service, updateContact line 112, \n this.contactList.indexOf(originalContact) \n${this.contactList.indexOf(originalContact)}`);
 
-        this.contactList.forEach(element => {
-            console.log(`contact.service, updateContact line 117, \n element.id ${element.id}, \n element.cname ${element.cname}, \n element.group ${element.group}`)
-        });
+        // this.contactList.forEach(element => {
+        //     console.log(`contact.service, updateContact line 117, \n element.id ${element.id}, \n element.cname ${element.cname}, \n element.group ${element.group}`)
+        // });
 
-        console.log(`contact.service, updateContact line 120, \n originalContact.id ${originalContact.id}, \n originalContact.cname ${originalContact.cname}, \n originalContact.group ${originalContact.group}`);
+        console.log(`contact.service, updateContact line 126, \n originalContact.id ${originalContact.id}, \n originalContact.cname ${originalContact.cname}, \n originalContact.group ${originalContact.group}`);
         
         // Get index of the original contact to replace it with the updated object
         let pos = this.contactList.indexOf(originalContact);
 
         // Console log originalContact info
-        console.log(`contact.service, updateContact line 113, \n newContact.id ${newContact.id}, \n originalContact.id ${originalContact.id}`);
+        console.log(`contact.service, updateContact line 132, \n newContact.id: ${newContact.id}, \n originalContact.id: ${originalContact.id}`);
 
-        console.log(`contact.service, updateContact line 114, pos: ${pos}`);
-        
-        console.log(`Contact.service, inside updateContact, line 114, \n newContact.id ${newContact.id},\n originalContact = ${originalContact.id}, \n${originalContact.cname}, ${originalContact.imageUrl}, \n${originalContact.phone}, \n${originalContact.email}, \n${originalContact.group}`);
+        console.log(`contact.service, updateContact line 134, pos: ${pos}`);
+
+        console.log(`Contact.service, inside updateContact, line 136, \n newContact.id: ${newContact.id},\n originalContact: ${originalContact.id}, \n${originalContact.cname}, ${originalContact.imageUrl}, \n${originalContact.phone}, \n${originalContact.email}, \n${originalContact.group}`);
 
         if (pos < 0) {
             alert('Invalid update info.');

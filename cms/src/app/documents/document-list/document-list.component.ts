@@ -23,14 +23,15 @@ export class DocumentListComponent implements OnInit, OnDestroy {
     ) {}
 
   ngOnInit() {
-    // Load documents from firebase
+    // Load documents from firebase to Observable
     this.fetchDocs = this.docService.fetchDocuments();
+    // Get the document list and save in class
     this.docService.documentListChangedEvent  
       .subscribe(
       (documentsList: Document[]) => {
         this.documents = documentsList;
       }
-    );
+    ); 
   }
 
   onNewDocument() {

@@ -78,7 +78,7 @@ export class DocumentService {
     }
 
     getDocument(index: number) {
-        console.log(this.documentList[index]);
+        console.log(`this.documentList[index]: ${this.documentList[index]}`);
         return this.documentList[index];
     }
 
@@ -105,9 +105,9 @@ export class DocumentService {
         
         console.log(`Document.service, updateDocument line 112, \nthis.DocumentList.indexOf(originalDocument) \n${this.documentList.indexOf(originalDocument)}`);
 
-        this.documentList.forEach(element => {
-            console.log(`Document.service, updateDocument line 117, \n element.id ${element.id}, \n element.cname ${element.dname}, \n element.group ${element.children}`)
-        });
+        // this.documentList.forEach(element => {
+        //     console.log(`Document.service, updateDocument line 117, \n element.id ${element.id}, \n element.cname ${element.dname}, \n element.group ${element.children}`)
+        // });
 
         console.log(`Document.service, updateDocument line 120, \n originalDocument.id ${originalDocument.id}, \n originalDocument.cname ${originalDocument.dname}, \n originalDocument.group ${originalDocument.children}`);
         

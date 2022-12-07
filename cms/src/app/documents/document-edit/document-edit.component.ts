@@ -14,7 +14,7 @@ import { DocumentService } from '../document.service';
 export class DocumentEditComponent implements OnInit {
     originalDocument: Document;
     document: Document;
-    id: number;
+    index: number;
     editMode: boolean = false;
 
     constructor(
@@ -28,12 +28,10 @@ export class DocumentEditComponent implements OnInit {
         .subscribe(
             (params: Params) => {
               // '+' converts string into number
-              this.id = +params['id'];
-              console.log(`document-edit, onInit, this.id: ${this.id}`)
+              this.index = +params['id'];
               this.editMode = params['id'] != null;
-              this.originalDocument = this.docService.getDocument(this.id);
+              this.originalDocument = this.docService.getDocument(this.index);
               if (!this.originalDocument) {
-                alert('Document not found!')
                   return;
               }
               this.editMode = true;
@@ -48,7 +46,7 @@ export class DocumentEditComponent implements OnInit {
         // Add values to new contact object
         //console.log(value);
         const newDocument = new Document(
-            this.id, 
+            this.docService.maxDocumentId, 
             value.dname, 
             value.description, 
             value.url,
@@ -56,7 +54,7 @@ export class DocumentEditComponent implements OnInit {
             value.children || []
         );
         if (this.editMode) { 
-          // Save the updated into into the contact object     
+            // Save the updated into into the contact object     
             this.docService.updateDocument(this.originalDocument, newDocument);
             alert('Document updated!');
             this.router.navigate(['/documents']);

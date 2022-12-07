@@ -16,7 +16,7 @@ export class ContactEditComponent implements OnInit {
     originalContact: Contact;
     contact: Contact;
     groupContacts: Contact[] = [];
-    id: number;
+    index: number;
     editMode = false;
     simpleDrop: any = null;
 
@@ -31,23 +31,30 @@ export class ContactEditComponent implements OnInit {
         .subscribe(
             (params: Params) => {
                 // '+' converts string into number
-                this.id = +params['id'];
-                console.log(`contact-edit, onInit line 35, this.id: ${this.id}`)
+                this.index = +params['id'];
+
+                console.log(`contact-edit, onInit line 36, this.index: ${this.index}`);
+
+                // If the index isn't null, save edit mode as true
                 this.editMode = params['id'] != null;
-                this.originalContact = this.contactService.getContact(this.id);
-                // var me = arguments.callee.toString();
-                // me = me.substr('function '.length);
-                // me = me.substr(0, me.indexOf('('));
-                // alert(me);
-                console.log(`contact-edit, ngOnInit, line 37, this.originalContact: ${this.originalContact.id}, \n${this.originalContact.cname}`);
+                
+                // Get the contact at this index in the list
+                this.originalContact = this.contactService.getContact(this.index);
+                
+                console.log(`contact-edit, ngOnInit, line 44, this.originalContact.id, this.originalContact.cname: ${this.originalContact.id}, \n${this.originalContact.cname}`);
+
                 if (!this.originalContact) {
-                    alert('Contact not found!')
+                    alert('Contact not found!');
                     return;
                 }
+
                 this.editMode = true;
                 this.contact = this.originalContact;
-                console.log(`contact-edit, ngOnInit, line 43, this.contact.id: ${this.contact.id}`);
-                console.log(`contact-edit, ngOnInit, line 44, this.originalContact.id: ${this.originalContact.id}`);
+
+                console.log(`contact-edit, ngOnInit, line 54, this.contact.id: ${this.contact.id}`);
+
+                console.log(`contact-edit, ngOnInit, line 56, this.originalContact.id: ${this.originalContact.id}`);
+
                 // // Check for entries in group, if so, clone it
                 // if (this.contact.group) {
                 //     this.groupContacts = this.contact.group.slice();
@@ -57,26 +64,31 @@ export class ContactEditComponent implements OnInit {
     }
 
     onSubmit(form: NgForm) {
-        // Collect form object
+        // Get form object
         const value = form.value;
-        console.log(`value: ${value.email}, ${value.cname}`);
-        // Add form and maxId values to new contact object
+        
+        console.log(`contact-edit, line 70, form value.email, value.cname: ${value.email}, ${value.cname}`);
+
+        // Add form values to new contact object
         const newContact = new Contact(
-            this.id 
+            this.contactService.maxContactId
             ,value.cname 
             ,value.email 
             ,value.phone 
             ,value.imageUrl
             // If there are group members, add them, otherwise add empty list
-            ,value.groupContacts || []
+            ,value.groupList || []
         );
+
         if (this.editMode) {
+            newContact.id = this.originalContact.id;
+
+            console.log(`****** contact-edit, onSubmit, line 86, this.originalContact.id, newContact.id: \n ${this.originalContact.id}, ${ newContact.id}`);
+
             // Save the updated into into the contact object
             this.contactService.updateContact(this.originalContact, newContact);
             this.router.navigate(['/contacts']);
         } else {
-            // Get next consecutive id number
-            newContact.id = this.contactService.maxContactId;
             // Create the new contact object
             this.contactService.addContact(newContact);
         }
@@ -105,22 +117,28 @@ export class ContactEditComponent implements OnInit {
 
     addToGroup($event: any) {
         // Add group contact that was dragged and dropped
-        console.log('this.groupContacts: ');
-        console.log(JSON.stringify(this.groupContacts));  
+        // console.log('this.groupContacts: ');
+        // console.log(JSON.stringify(this.groupContacts)); 
+
         const selectedContact: Contact = $event.dragData;
-        console.log(`contact-edit, addToGroup line 111, JSON.stringify(selectedContact): \n${JSON.stringify(selectedContact)}`);  
+
+        // console.log(`contact-edit, addToGroup line 111, JSON.stringify(selectedContact): \n${JSON.stringify(selectedContact)}`); 
+
         const invalidGroupContact = this.isInvalidContact(selectedContact);
         if (invalidGroupContact){
             return;
         }
         this.groupContacts.push(selectedContact);
-        console.log(JSON.stringify(this.groupContacts)); 
+
+        //console.log(JSON.stringify(this.groupContacts)); 
     }
   
     onRemoveItem(index: number) {
+        console.log(`contact-edit, onRemoveItem line 140, index: \n${index}`); 
         if (index < 0 || index >= this.groupContacts.length) {
             return;
         }
+        console.log(`contact-edit, onRemoveItem line 140, index: \n${index}`); 
         this.groupContacts.splice(index, 1);
     }
 
