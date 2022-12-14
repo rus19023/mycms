@@ -1,39 +1,31 @@
-<div class="container-fluid">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <div class="row col-xs-1mt-5">
-                <div class="col-md-6">
-                    <h3 class="p-2">Contacts</h3>
-                </div>
-                <div class="row pad-all">
-                    <div class="input-group pull-left col-xs-7">
-                        <input #searchBox (keyup)="search(searchBox.value)" class="form-control" placeholder="Search names"> 
-                        <div class="glyphicon glyphicon-search input-group-addon"   (click)="search(searchBox.value)">
-                        </div>
+<div class="panel panel-default">
+    <div class="panel-heading pad-all">
+        <div class="row pad-left-right">
+            <span class="pull-left title" style="font-size:2.5rem; font-weight: bold; padding: 1%;">Contacts</span>            
+            <a (click)="onNewContact()" style="cursor: pointer;" class="btn btn-success pull-right">Add Contact</a>
+        </div>
+        <div class="row pad-all">
+            <div class="input-group pull-left col-xs-7">
+                <input #searchBox (keyup)="search(searchBox.value)" class="form-control" placeholder="Search names"> 
+                    <div class="glyphicon glyphicon-search input-group-addon" (click)="search(searchBox.value)">
                     </div>
-                    <div class="pull-right">                
-                       <div class="col-xl-6">
-                           <a [routerLink]="['new']" class="btn btn-success pull-right">New contact</a>
-                       </div>
-                   </div>
-                </div>
             </div>
-
-            <div class="row col-xs-1mt-5">
-                
-            </div>
-
         </div>
-        <div class="panel-body m-4">
-            <cms-contact-item 
-                *ngFor="let i = index; let contactEl of contacts | contactsFilter:term" 
-                [contact]="contactEl"
-                [index]="i"
-                dnd-draggable 
-                [dragEnabled]="true"
-                [dragData]="contactEl"
-                [dropZones]="['contactGroup']">
-            </cms-contact-item>
-        </div>
+
+    <!-- <div class="row col-xs-1mt-5">
+            
+        </div> -->
+    </div>
+
+    <div class="panel-body m-4">
+        <cms-contact-item
+            *ngFor="let i = index; let contactEl of contacts | contactsFilter:term" 
+            [contact]="contactEl"
+            [index]="i"
+            dnd-draggable 
+            [dragEnabled]="true"
+            [dragData]="contactEl"
+            [dropZones]="['contactGroup']">
+        </cms-contact-item>
     </div>
 </div>

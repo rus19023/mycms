@@ -1,14 +1,14 @@
 <div class="panel panel-default">
     <div class="panel-heading">
       <div class="row pad-all">
-          <h2 class="title pad-left-right">{{ contact.cname }} </h2>
+          <h2 class="title pad-left-right">{{ contact?.cname }} </h2>
       </div>
     </div>
     <div class="panel-body">
       <div class="row panel-card">
           <img 
-          src="{{ contact.imageUrl }}"
-          alt="{{ contact.cname }}" 
+          src="{{ contact?.imageUrl }}"
+          alt="{{ contact?.cname }}" 
           class="img-responsive">
           <button [routerLink]="['edit']" class="btn btn-info pull-right">Edit</button>
           <button (click)="onDeleteContact()" class="btn btn-danger pull-right">Delete</button>
@@ -17,17 +17,17 @@
       <div class="panel-footer">
         <div class="row">
           <div class="col-lg-8 plain-text">
-            Email: {{ contact.email }}
+            Email: {{ contact?.email }}
           </div>
         </div>
         <div class="row">
           <div class="col-lg-8 plain-text">
-            Phone: {{ contact.phone }}
+            Phone: {{ contact?.phone }}
           </div>
         </div>
         <div class="row">
           <div class="col-lg-8 plain-text">
-            Group Contacts: {{ contact.group }}
+            Group Contacts: {{ contact?.group }}
           </div>
         </div>
       </div>

@@ -191,7 +191,7 @@ input.ng-invalid.ng-touched {
     grid-template-columns: 1fr;
 }
 
-@media (min-width: 767.98px) {
+@media (min-width: 800px) {
 
     .slide-to-side {
         grid-template-columns: 1fr 1fr !important;

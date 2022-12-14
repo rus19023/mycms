@@ -62,7 +62,7 @@ export class DocumentService {
             , httpOptions
         )
         .subscribe(response => {
-            console.log(response);
+            console.log(`response: ${response}`);
         });       
     }
 
@@ -78,7 +78,6 @@ export class DocumentService {
     }
 
     getDocument(index: number) {
-        console.log(`this.documentList[index]: ${this.documentList[index]}`);
         return this.documentList[index];
     }
 
@@ -87,42 +86,27 @@ export class DocumentService {
             console.log('No document info received.');
             return;
         } else {
-            this.maxDocumentId++;
-            newDocument.id = this.maxDocumentId;  
             this.documentList.push(newDocument);
+            console.log('Document added!');
             this.storeDocuments();
         }
     }
 
     updateDocument(originalDocument: Document, newDocument: Document) { 
-        console.log(`inside updateDocument, line 107, \nnewDocument.id: ${newDocument.id}, \n newDocument.id: ${newDocument.id}`);
-        
+                
         // Check for missing document information
         if (!originalDocument || !newDocument) {
-            alert('Document info missing.');
+            console.log('Document info missing.');
             return;
-        }
-        
-        console.log(`Document.service, updateDocument line 112, \nthis.DocumentList.indexOf(originalDocument) \n${this.documentList.indexOf(originalDocument)}`);
-
-        // this.documentList.forEach(element => {
-        //     console.log(`Document.service, updateDocument line 117, \n element.id ${element.id}, \n element.cname ${element.dname}, \n element.group ${element.children}`)
-        // });
-
-        console.log(`Document.service, updateDocument line 120, \n originalDocument.id ${originalDocument.id}, \n originalDocument.cname ${originalDocument.dname}, \n originalDocument.group ${originalDocument.children}`);
-        
+        }        
         // Get index of the original document to replace it with the updated object
         let pos = this.documentList.indexOf(originalDocument);
 
         // Console log originalDocument info
-        console.log(`contact.service, updateContact line 113, \n newDocument.id ${newDocument.id}, \n originalDocument.id ${originalDocument.id}`);
-
-        console.log(`contact.service, updateContact line 114, pos: ${pos}`);
-        
-        console.log(`Contact.service, inside updateContact, line 114, \n newDocument.id ${newDocument.id},\n originalDocument = ${originalDocument.id}, \n${originalDocument.dname}, ${originalDocument.url}, \n${originalDocument.description}, \n${originalDocument.children}`);
+        console.log(`updateDocument, \n originalDocument ${originalDocument}`);
 
         if (pos < 0) {
-            alert('Invalid update info.');
+            console.log('Invalid update info.');
             return;
         }      
         newDocument.id = originalDocument.id;

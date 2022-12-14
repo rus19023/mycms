@@ -14,8 +14,7 @@ export class DocumentItemComponent implements OnInit, OnDestroy {
   @Input() index: number;
   subscription: Subscription;
 
-  constructor(private docService: DocumentService) {
-   }
+  constructor(private docService: DocumentService) {}
 
   ngOnInit() {
     this.subscription = this.docService.documentSelected  
@@ -34,7 +33,8 @@ export class DocumentItemComponent implements OnInit, OnDestroy {
     // console.log(this.document.children);    
   }
 
-  ngOnDestroy() {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+  ngOnDestroy(): void {
+      this.subscription.unsubscribe();      
   }
 
 }

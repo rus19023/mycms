@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Params, Router, ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
+
 import { Document } from '../document.model';
 import { DocumentService } from '../document.service';
 
@@ -16,12 +17,14 @@ export class DocumentEditComponent implements OnInit {
     document: Document;
     index: number;
     editMode: boolean = false;
+    childrenDocuments: Document[] = [];
+
 
     constructor(
         private docService: DocumentService,
         private router: Router,
         private route: ActivatedRoute
-        ) { }
+        ) {}
 
     ngOnInit() {
         this.route.params
@@ -30,6 +33,8 @@ export class DocumentEditComponent implements OnInit {
               // '+' converts string into number
               this.index = +params['id'];
               this.editMode = params['id'] != null;
+                
+              // Get the document at this index in the list
               this.originalDocument = this.docService.getDocument(this.index);
               if (!this.originalDocument) {
                   return;
@@ -60,7 +65,7 @@ export class DocumentEditComponent implements OnInit {
             this.router.navigate(['/documents']);
         } else {
           // Get next consecutive id number
-            newDocument.id = this.docService.maxDocumentId;
+            newDocument.id = this.docService.maxDocumentId++;
             // Create the new document object
             this.docService.addDocument(newDocument);
             alert('Document added!');
