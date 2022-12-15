@@ -60,7 +60,10 @@ app.use((req, res, next) => {
 
 // Tell express to use the specified director as the
 // root directory for your web site
-app.use(express.static(path.join(__dirname, 'dist/cms')));
+app.use(express.static(path.join(__dirname, '/docs')));
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname + '/docs/index.html'));
+})
 
 // Tell express to map the default route ('/') to the index route
 app.use('/', index);
@@ -81,8 +84,6 @@ app.get('*', (req, res) => {
 // Changed port number to not clash with MongoDB
 const port = process.env.PORT || '3333';
 app.set('port', port);
-
-
 
 app.use(function(req, res, next) {
     res.render("index");
