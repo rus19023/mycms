@@ -60,9 +60,9 @@ app.use((req, res, next) => {
 
 // Tell express to use the specified director as the
 // root directory for your web site
-app.use(express.static(path.join(__dirname, '/docs')));
+app.use(express.static(path.join(__dirname, '/dist')));
 app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname + '/docs/index.html'));
+    res.sendFile(path.join(__dirname, 'dist/index.html'));
 })
 
 // Tell express to map the default route ('/') to the index route
