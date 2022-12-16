@@ -1,0 +1,17 @@
+[
+    {    
+    "_id": "58cac77b4690c438e097ab44",
+    "id": 100,
+    "name": "maxDocumentId"
+    },
+    {    
+        "_id": "58cac77b4690c438e097ab41",
+        "id": 100,
+        "name": "maxMessageId"
+    },
+    {    
+        "_id": "58cac77b4690c438e097ab42",
+        "id": 100,
+        "name": "maxContactId"
+    }
+]

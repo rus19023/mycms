@@ -40,7 +40,7 @@ export class DocumentEditComponent implements OnInit {
                   return;
               }
               this.editMode = true;
-              this.document = this.originalDocument;
+              this.document = JSON.parse(JSON.stringify(this.originalDocument));
             }
         );
     }
@@ -51,7 +51,7 @@ export class DocumentEditComponent implements OnInit {
         // Add values to new contact object
         //console.log(value);
         const newDocument = new Document(
-            this.docService.maxDocumentId, 
+            '', 
             value.dname, 
             value.description, 
             value.url,
@@ -61,16 +61,14 @@ export class DocumentEditComponent implements OnInit {
         if (this.editMode) { 
             // Save the updated into into the contact object     
             this.docService.updateDocument(this.originalDocument, newDocument);
-            alert('Document updated!');
+            console.log('Document updated!');
             this.router.navigate(['/documents']);
-        } else {
-          // Get next consecutive id number
-            newDocument.id = this.docService.maxDocumentId++;
+        } else {          
             // Create the new document object
             this.docService.addDocument(newDocument);
-            alert('Document added!');
-            this.router.navigate(['/documents']);
+            console.log('Document added!');
         }
+        this.router.navigate(['/documents']);
     }
 
     onCancel() {

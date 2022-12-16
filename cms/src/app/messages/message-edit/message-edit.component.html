@@ -1,6 +1,6 @@
 <!-- <div class="panel panel-default">
     <div class="panel-body"> -->
-            <form id="document-edit" class="panel-footer">
+            <form id="message-edit" #f="ngForm" (ngSubmit)="onSendMessage(f)" class="panel-footer">
                 <div class="row">
                 <div class="col-sm-12 form-group">
                     <label for="subject"  class="form-label">Subject</label>
@@ -11,7 +11,7 @@
                     class="form-control"
                     size="120"
                     max="120"
-                    value="hello"
+                    value=""
                     required>
                 </div>
                 
@@ -24,16 +24,16 @@
                     class="form-control"
                     max="255"
                     size="120"
-                    value="testing message send button"
+                    value=""
                     required>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <button class="btn btn-success" type="submit" (click)="onSendMessage()">Send</button>
+                    <button class="btn btn-success" type="submit">Send</button>
                     <button class="btn btn-danger" type="button" (click)="onClear()">Clear</button>
                 </div>
             </div>
-        <!-- </form>
-    </div>
+        </form>
+    <!-- </div>
 </div> -->

@@ -5,20 +5,20 @@ var http = require('http');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-// //var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
-// // Connect to MongoDB
-// // TODO: add connection string
-// mongoose.connect('',
-//    { useNewUrlParser: true }, (err, res) => {
-//       if (err) {
-//          console.log('Connection failed: ' + err);
-//       }
-//       else {
-//          console.log('Connected to database!');
-//       }
-//    }
-// );
+// Connect to MongoDB
+// TODO: add remote connection string
+mongoose.connect('mongodb://localhost:27017/cms',
+   { useNewUrlParser: true }, (err, res) => {
+      if (err) {
+         console.log('Connection failed: ' + err);
+      }
+      else {
+         console.log('Connected to database!');
+      }
+   }
+);
 
 var index = require('./server/routes/app');
 

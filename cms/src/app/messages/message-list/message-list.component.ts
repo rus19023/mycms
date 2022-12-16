@@ -14,7 +14,6 @@ import { MessageService } from '../message.service';
 export class MessageListComponent implements OnInit, OnDestroy {
     messages: Message[] = [];
     fetchMessages: Subscription;
-    maxMessageId: number;   
 
     constructor(
         private msgService: MessageService,
@@ -25,7 +24,6 @@ export class MessageListComponent implements OnInit, OnDestroy {
     ngOnInit() { 
         // Loads messages array from storage
         this.fetchMessages = this.msgService.fetchMessages();
-        this.maxMessageId = +this.msgService.getMaxId;
         // Sends messages to service        
         this.msgService.messageListChangedEvent
         .subscribe(
@@ -42,5 +40,4 @@ export class MessageListComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         this.fetchMessages.unsubscribe();
     }
-
 }

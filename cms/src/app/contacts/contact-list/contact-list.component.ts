@@ -27,7 +27,6 @@ export class ContactListComponent implements OnInit, OnDestroy {
     ngOnInit() {
         // Load contacts from firebase
         this.fetchContacts = this.contactService.fetchContacts();
-        this.maxContactId = +this.contactService.getMaxContactId;
         this.contactService.contactListChangedEvent  
             .subscribe(
             (contactsList: Contact[]) => {

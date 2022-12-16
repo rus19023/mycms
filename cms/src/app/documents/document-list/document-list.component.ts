@@ -1,6 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
 
 import { Document } from '../document.model';
 import { DocumentService } from '../document.service';
@@ -11,10 +10,8 @@ import { DocumentService } from '../document.service';
     styleUrls: ['./document-list.component.css']
 })
 
-  export class DocumentListComponent implements OnInit, OnDestroy {
+  export class DocumentListComponent implements OnInit {
       documents: Document[] = [];
-      fetchDocs: Subscription;
-      maxDocumentId: number;   
 
     constructor(
         private docService: DocumentService,
@@ -22,10 +19,8 @@ import { DocumentService } from '../document.service';
         private route: ActivatedRoute
     ) {}
 
-    ngOnInit() {
-        // Load documents from firebase to Observable
-        this.fetchDocs = this.docService.fetchDocuments();
-        
+    ngOnInit() {               
+        this.docService.getDocuments();
         // Get the document list and save in class
         this.docService.documentListChangedEvent  
             .subscribe(
@@ -37,10 +32,6 @@ import { DocumentService } from '../document.service';
 
     onNewDocument() {
       this.router.navigate(['new'], {relativeTo: this.route});
-    }
-
-    ngOnDestroy() {
-      this.fetchDocs.unsubscribe();
     }
 
 }

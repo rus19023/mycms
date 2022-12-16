@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Document = require('../models/document');
 
 const documentSchema = mongoose.Schema({
    id: { type: String, required: true },

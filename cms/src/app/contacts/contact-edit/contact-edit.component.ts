@@ -41,13 +41,11 @@ export class ContactEditComponent implements OnInit {
                     return;
                 }
                 this.editMode = true;
-                this.contact = this.originalContact;
+                this.contact = JSON.parse(JSON.stringify(this.originalContact));
 
                 // Check for entries in group, if so, clone it
-                if (!this.contact.group) {
-                    this.contact.group = [];
-                } else {
-                    this.groupContacts = this.contact.group.slice();
+                if (this.contact.group != undefined && this.contact.group.length > 0) {
+                    this.groupContacts = this.contact.group.slice();                  
                 }
             }
         );
@@ -58,7 +56,7 @@ export class ContactEditComponent implements OnInit {
         const value = form.value;
         // Add form values to new contact object
         const newContact = new Contact(
-            this.contactService.maxContactId++
+            ''
             ,value.cname 
             ,value.email 
             ,value.phone 
@@ -75,8 +73,6 @@ export class ContactEditComponent implements OnInit {
             this.router.navigate(['/contacts']);
         } else {
             // Create the new contact object
-            newContact.id = this.contactService.maxContactId++;
-            console.log('newContact.id', newContact.id);
             this.contactService.addContact(newContact);
             this.router.navigate(['/contacts']);            
         }

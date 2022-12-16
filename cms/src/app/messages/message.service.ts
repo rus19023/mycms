@@ -17,12 +17,33 @@ export class MessageService {
     private messageList: Message[] = [];
     messageSelected = new Subject<Message>();
     messageListChangedEvent = new Subject<Message[]>();
-    maxMessageId: number;
-    configUrl: string = 'https://bonniesites-solutions-cms-default-rtdb.firebaseio.com/messages.json';
+    configUrl: string = 'http://localhost:3333/messages';
 
-    constructor(
-        private http: HttpClient
-      ) {}
+    constructor( private http: HttpClient ) 
+        {
+            this.http
+            .get(this.configUrl)
+            .subscribe(
+                (messages: any) => {
+            this.messageList = messages;
+            this.messageList.sort((a, b) => {
+                if (a < b) {
+                    return -1;
+                } else if (a > b) {
+                    return 1;
+                }
+                return 0;
+            });
+            //emit the next list change event
+            this.messageListChangedEvent.next(this.messageList.slice());
+            },
+            // error method
+            (error: any) => {
+            //print the error to the console
+            console.error(error);
+            }
+        );
+    }
 
     fetchMessages() {
         return this.http
@@ -31,7 +52,6 @@ export class MessageService {
             // success method
             (messages: Message[] ) =>  {              
                 this.messageList = messages;
-                this.maxMessageId = this.getMaxId();
                 //sort the list of Messages
                 this.messageList.sort((a, b) => {
                     if (a.id > b.id) {
@@ -54,22 +74,22 @@ export class MessageService {
     }
 
     storeMessages() {       
-        const Messages = JSON.stringify(this.messageList);
-        this.http
-        .put(
-            this.configUrl
-            , Messages
-            , httpOptions
-        )
-        .subscribe(response => {
-            console.log(response);
-        });       
+        const messagesList = JSON.stringify(this.messageList);
+        let httpHeaders = new HttpHeaders();
+    httpHeaders.set('Content-Type', 'application/json');
+    this.http
+      .put(this.configUrl,
+        messagesList
+      )
+      .subscribe(() =>
+        this.messageListChangedEvent.next(this.messageList.slice())
+      );   
     }
 
     getMaxId(): number {
         let maxId = 0;
         this.messageList.forEach(element => {
-            let currentId = element.id;
+            let currentId = +element.id;
             if (currentId > maxId) {
                 maxId = currentId;
             }
@@ -78,7 +98,7 @@ export class MessageService {
         return maxId++;
     }
 
-    getMessage(id: number): Message {
+    getMessage(id: string): Message {
         for(const message of this.messageList) {
             if(message.id === id) {
                 //console.log(`message.id inside getMessage in MessageService: ${message.id}`)         
@@ -89,35 +109,24 @@ export class MessageService {
     }
 
     addMessage(message: Message) {
-        this.messageList.push(message);
-        // this.messagesChanged.emit(this.messageList.slice());
-        this.storeMessages();
+        if (!message) {
+            return;
+          }
+      
+          message.id = '';
+          const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+      
+          // add to database
+          this.http
+            .post<{ message: string; data: Message }>(this.configUrl,
+              message,
+              { headers: headers }
+            )
+            .subscribe((responseData) => {
+              // add new document to documents
+              this.messageList.push(responseData.data);
+              this.storeMessages();
+            });
     }
- 
-
-    // getMessage(index: number) {
-    //     console.log(`this.messageList[index]: ${this.messageList[index]}`);
-    //     return this.messageList[index];
-    // }
-
-    // addMessage(newMessage: Message) {
-    //     if (!newMessage) {
-    //         console.log('No Message info received.');
-    //         return;
-    //     } else {
-    //         newMessage.id = this.maxMessageId;  
-    //         this.messageList.push(newMessage);
-    //         this.storeMessages();
-    //     }
-    // }
-
-    //  getMessages() {
-    //   return this.messages.slice();
-    // }
-
-    //  addMessages(messages: Message[]) {
-    //    this.messages.push(...messages);
-    //    this.messagesChanged.emit(this.messages.slice());
-    //  }
    
 }
