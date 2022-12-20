@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
+
 const sequenceGenerator = require("./sequenceGenerator");
 const Message = require("../models/message");
 const Contact = require("../models/contact");
 
 router.get("/", (req, res, next) => {
-    db.Message.find()
+    Message.find()
         .populate('sender')
         .then((data) => res.status(200).json(data))
         .catch((err) => res.status(500).json({ error: err }));

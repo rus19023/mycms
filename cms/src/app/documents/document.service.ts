@@ -20,11 +20,11 @@ export class DocumentService implements OnInit {
 
     getDocuments() {
         this.http
-        .get(this.configUrl)
+        .get(this.configUrl, {responseType: 'text'})
         .subscribe(
             (documents: any) => {
                 console.log(documents);
-                this.documentList = JSON.parse(JSON.stringify(documents));
+                this.documentList = documents;
                 this.sortAndSend();
             },
             // error method

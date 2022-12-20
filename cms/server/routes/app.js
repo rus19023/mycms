@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
-var path = require('path');
+const express = require('express');
+const router = express.Router();
+const path = require('path');
 
 // /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.sendFile(path.join(__dirname, 'dist/index.html'), {title: 'CMS'});
+    res.sendFile(path.join(__dirname, 'cms/dist/index.html'), {title: 'CMS App'});
 });
 
 module.exports = router;

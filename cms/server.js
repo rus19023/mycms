@@ -1,3 +1,6 @@
+console.log("\n\n\nStarting Node.js backend server\n\n\n");
+
+
 // Get dependencies
 var express = require('express');
 var path = require('path');
@@ -6,6 +9,8 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+
+const app = express(); // create an instance of express
 
 // Connect to MongoDB
 // TODO: add remote connection string
@@ -29,8 +34,6 @@ var index = require('./server/routes/app');
 const messageRoutes = require('./server/routes/messages');
 const documentRoutes = require('./server/routes/documents');
 const contactRoutes = require('./server/routes/contacts');
-
-var app = express(); // create an instance of express
 
 
 // Tell express to use the following parsers for POST data
@@ -60,10 +63,11 @@ app.use((req, res, next) => {
 
 // Tell express to use the specified director as the
 // root directory for your web site
-app.use(express.static(path.join(__dirname, '/dist')));
-app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'dist/index.html'));
-})
+app.use(express.static(path.join(__dirname, '/dist/index.html')));
+
+// app.get('/*', function(req, res) {
+//     res.sendFile(path.join(__dirname, 'dist/index.html'));
+// })
 
 // Tell express to map the default route ('/') to the index route
 app.use('/', index);
@@ -91,8 +95,6 @@ app.use(function(req, res, next) {
 
 // Create HTTP server.
 const server = http.createServer(app);
-
-//app.set('view engine', 'html');
 
 // Tell the server to start listening on the provided port
 server.listen(port, function() {

@@ -1,6 +1,18 @@
 var express = require('express');
 var router = express.Router();
+
 const sequenceGenerator = require('./sequenceGenerator');
+const Document = require("../models/document");
+
+router.get("/", (req, res, next) => {
+    Document.find().then((docs) => {
+        console.log(docs);
+      res.status(200).json({
+        message: "Documents fetched successfully!",
+        documents: docs
+      });
+    });
+  });
 
 router.post("/", (req, res, next) => {
     const maxDocumentId = sequenceGenerator.nextId("documents");
@@ -25,16 +37,6 @@ router.post("/", (req, res, next) => {
             });
         });
     });
-
-router.get("/", (req, res, next) => {
-    Document.find().then(docs => {
-        console.log(docs);
-      res.status(200).json({
-        message: "Documents fetched successfully!",
-        documents: docs
-      });
-    });
-  });
 
 router.put("/:id", (req, res, next) => {
     Document.findOne({ id: req.params.id })
